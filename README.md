@@ -1,5 +1,17 @@
 # sublime text 3 config
 
-## packages
+## FE
 
-* Package Control
+### Package Control
+
+* sublimelinter3
+* sublimelinter-jshint
+* SublimeCodeIntel
+* TrailingSpaces
+* jQuery
+* Bracket Highlighter
+
+### npm
+
+* jshint
+
