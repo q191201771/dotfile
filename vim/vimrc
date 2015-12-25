@@ -1,0 +1,21 @@
+filetype plugin indent on
+syntax on
+
+set nu!
+"set cc=120                                                                                                                 
+set ts=4                                                                                                                   
+set sw=4                                                                                                                   
+set sts=4                                                                                                                  
+"set tw=120                                                                                                                 
+set tabstop=4                                                                                                              
+set hlsearch                                                                                                               
+set cindent                                                                                                                
+set softtabstop=4                                                                                                          
+set shiftwidth=4                                                                                                           
+set ic                                                                                                                     
+set expandtab                                                                                                              
+set ofu=syntaxcomplete                                                                                                     
+set autochdir
+
+set lazyredraw
+set incsearch
