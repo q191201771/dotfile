@@ -2,6 +2,7 @@
 
 ## FE
 
+* Color Highlighter
 * sublimelinter3
 * sublimelinter-jshint
 * SublimeCodeIntel
