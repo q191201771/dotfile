@@ -10,6 +10,7 @@
 * jQuery
 * Bracket Highlighter
 * stylus
+* less
 
 * jshint
 
