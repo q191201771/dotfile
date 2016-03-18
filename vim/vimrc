@@ -52,3 +52,4 @@ set ofu=syntaxcomplete
 set autochdir
 set lazyredraw
 set incsearch
+set backspace=2
