@@ -1,21 +1,54 @@
+"-----Vundle-----"
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"PluginInstall
+Plugin 'fatih/vim-go'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Shougo/neocomplete'
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
 filetype plugin indent on
+
+"-----mapping-----"
+map <silent> <F2> :NERDTreeToggle<CR>
+
+"-----vim-go-----"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+
+"-----vim-colorschemes-----"
+"color zenburn
+color molokai
+
+"----neocomplete-----"
+let g:neocomplete#enable_at_startup = 1
+
+"-----global-----"
 syntax on
-
 set nu!
-"set cc=120                                                                                                                 
-set ts=4                                                                                                                   
-set sw=4                                                                                                                   
-set sts=4                                                                                                                  
-"set tw=120                                                                                                                 
-set tabstop=4                                                                                                              
-set hlsearch                                                                                                               
-set cindent                                                                                                                
-set softtabstop=4                                                                                                          
-set shiftwidth=4                                                                                                           
-set ic                                                                                                                     
-set expandtab                                                                                                              
-set ofu=syntaxcomplete                                                                                                     
+set ts=4
+set sw=4
+set sts=4
+"set cc=120
+"set tw=120
+set tabstop=4
+set hlsearch
+set cindent
+set softtabstop=4
+set shiftwidth=4
+set ic
+set expandtab
+set ofu=syntaxcomplete
 set autochdir
-
 set lazyredraw
 set incsearch
