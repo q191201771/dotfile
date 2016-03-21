@@ -10,12 +10,14 @@ Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
+Plugin 'bronson/vim-trailing-whitespace'
 
 call vundle#end()
 filetype plugin indent on
 
 "-----mapping-----"
 map <silent> <F2> :NERDTreeToggle<CR>
+"map <silent> <F3> :FixWhitespace<CR>
 
 "-----vim-go-----"
 let g:go_highlight_functions = 1
