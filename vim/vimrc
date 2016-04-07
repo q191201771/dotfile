@@ -44,7 +44,7 @@ set sts=4
 autocmd FileType javascript,html,css set ts=2
 autocmd FileType javascript,html,css set sw=2
 autocmd FileType javascript,html,css set sts=2
-"set cc=120
+set cc=120
 "set tw=120
 set tabstop=4
 set hlsearch
@@ -58,3 +58,4 @@ set autochdir
 set lazyredraw
 set incsearch
 set backspace=2
+set mouse=n
