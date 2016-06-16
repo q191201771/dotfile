@@ -6,16 +6,12 @@
 * sublimelinter3
 * sublimelinter-jshint
 * SublimeCodeIntel
-* TrailingSpaces
 * jQuery
 * Bracket Highlighter
 * stylus
 * less
-
 * jshint
-
 * javascript next
-
 * babel snippet
 
 ## go
@@ -29,4 +25,5 @@ defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 ## chaos
 
+* TrailingSpaces
 * wordcount
