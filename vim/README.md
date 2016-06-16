@@ -6,6 +6,16 @@
 
 ### taglist
 
+需要先安装ctags
+
+```
+mac
+brew install ctags
+
+ubuntu
+sudo apt-get install exuberant-ctags
+```
+
 如果是mac，需要手动安装最新的ctags
 ```
 brew install ctags
