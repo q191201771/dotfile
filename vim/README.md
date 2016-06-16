@@ -6,7 +6,7 @@
 
 ### taglist
 
-在mac下需要手动安装最新的ctags
+如果是mac，需要手动安装最新的ctags
 ```
 brew install ctags
 ```
