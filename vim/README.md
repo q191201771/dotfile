@@ -10,13 +10,9 @@
 
 ```
 mac
-brew install ctags
+$brew install ctags
 
 ubuntu
-sudo apt-get install exuberant-ctags
+$sudo apt-get install exuberant-ctags
 ```
 
-如果是mac，需要手动安装最新的ctags
-```
-brew install ctags
-```
