@@ -1,6 +1,12 @@
 ## 1st
 
-先安装vundle
+```
+$cp ./vimrc ~/.vimrc
+```
+
+## 2nd
+
+安装vundle
 
 ## 需要特殊配置
 
