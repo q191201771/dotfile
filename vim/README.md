@@ -1,10 +1,18 @@
-## 1st
+## 1. 安装vim
+
+```
+mac和ubuntu自带的vim版本太低，没有lua支持
+
+$brew install vim
+```
+
+## 2.
 
 ```
 $cp ./vimrc ~/.vimrc
 ```
 
-## 2nd
+## 3.
 
 安装vundle
 
