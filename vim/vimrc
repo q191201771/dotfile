@@ -7,6 +7,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'a.vim'
 Plugin 'bling/vim-airline'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
@@ -32,14 +33,16 @@ filetype plugin indent on
 """""""""""""""""""
 map <silent> <F2> :NERDTreeToggle<CR>
 map <silent> <F3> :TlistToggle<CR>
+map <silent> <F4> :A<CR>
 map <silent> <F8> :!ctags -R .<CR>
 map <silent> <Tab> :bn<CR>
 
 """"""""""""""""""""""""""""""""""
 "*****flazz/vim-colorschemes*****"
 """"""""""""""""""""""""""""""""""
-"antares  molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
-color apprentice
+"antares apprentice asu1dar automation autumn autumnleaf
+"Benokai molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
+color BlackSea
 
 """"""""""""""""""""""""""""""""
 "*****jiangmiao/auto-pairs*****"
