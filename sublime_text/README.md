@@ -3,16 +3,16 @@
 ## FE
 
 * Color Highlighter
-* sublimelinter3
+* sublimelinter
 * sublimelinter-jshint
 * SublimeCodeIntel
 * jQuery
-* Bracket Highlighter
+* Bracket Highlighter (not found)
 * stylus
 * less
 * jshint
-* javascript next
-* babel snippet
+* JavascriptNext
+* babel snippets
 
 ## go
 
