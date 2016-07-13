@@ -90,3 +90,4 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+alias rm=$HOME/.rm.sh
