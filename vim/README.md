@@ -3,7 +3,7 @@
 ```
 mac和ubuntu自带的vim版本太低，没有lua支持
 
-$brew install vim
+$brew install vim --with-lua
 ```
 
 ## 2.
@@ -30,3 +30,11 @@ ubuntu
 $sudo apt-get install exuberant-ctags
 ```
 
+### YCM
+
+PluginInstall后需要编译
+
+```
+$cd ~/.vim/bundle/youcompleteme
+$./install.py --clang-completer
+```
