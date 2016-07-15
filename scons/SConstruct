@@ -1,0 +1,22 @@
+import os
+
+ccflags = Split('-std=c++11 -g -O0 -Wall -Werror -Wc++11-extensions -Wcast-align')
+
+linkflags = Split('-static-libstdc++')
+
+BOOST_PATH = '/usr/local/Cellar/boost/1.60.0_1/lib/'
+
+include=[]
+
+libpath=[]
+
+libs = []
+libs.append(File(os.path.join(BOOST_PATH, 'libboost_thread-mt.a')))
+libs.append(File(os.path.join(BOOST_PATH, 'libboost_system.a')))
+
+src_files_server=['chat_server.cc']
+src_files_client=['chat_client.cc']
+
+Program(target='chat_server', source=src_files_server, LIBS=libs, LIBPATH=libpath, CCFLAGS=ccflags, LINKFLAGS=linkflags, CPPPATH=include)
+
+Program(target='chat_client', source=src_files_client, LIBS=libs, LIBPATH=libpath, CCFLAGS=ccflags, LINKFLAGS=linkflags, CPPPATH=include)
