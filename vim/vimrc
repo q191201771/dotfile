@@ -22,6 +22,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
+"Plugin 'stanangeloff/php.vim'
+Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'taglist.vim'
 Plugin 'valloric/youcompleteme'
@@ -46,8 +48,30 @@ map <silent> <Tab> :bn<CR>
 "*****flazz/vim-colorschemes*****"
 """"""""""""""""""""""""""""""""""
 "antares apprentice asu1dar automation autumn autumnleaf
-"Benokai BlackSea molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
-color beekai
+"Benokai BlackSea beekai behelit molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
+color benlight
+
+""""""""""""""""""""""""""""""""""""""
+"*****shawncplus/phpcomplete.vim*****"
+""""""""""""""""""""""""""""""""""""""
+let g:phpcomplete_relax_static_constraint      = 1
+let g:phpcomplete_complete_for_unknown_classes = 1
+let g:phpcomplete_search_tags_for_variables    = 1
+let g:phpcomplete_parse_docblock_comments      = 1
+
+""""""""""""""""""""""""""""""""
+"*****stanangeloff/php.vim*****"
+""""""""""""""""""""""""""""""""
+"let g:php_syntax_extensions_enabled = 1
+""let b:php_syntax_extensions_enabled = 1
+"function! PhpSyntaxOverride()
+"    hi! def link phpDocTags  phpDefine
+"    hi! def link phpDocParam phpType
+"endfunction
+"augroup phpSyntaxOverride
+"    autocmd!
+"    autocmd FileType php call PhpSyntaxOverride()
+"augroup END
 
 """"""""""""""""""""""""""""""""
 "*****jiangmiao/auto-pairs*****"
