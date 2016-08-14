@@ -4,4 +4,4 @@
 * linter
 * linter-php
 * atom-autocomplete-php
-
+* minimap
