@@ -6,6 +6,8 @@
 * linter
 * linter-php
 * atom-autocomplete-php
+* autocomplete-clang
+* linter-gcc
 
 ### Themes
 
