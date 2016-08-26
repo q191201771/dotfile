@@ -8,6 +8,7 @@
 * atom-autocomplete-php
 * autocomplete-clang
 * linter-gcc
+* sublime-style-column-selection
 
 ### Themes
 
