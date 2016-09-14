@@ -9,7 +9,7 @@
 * autocomplete-clang
 * linter-gcc
 * sublime-style-column-selection
-* markdown-writer
+* markdown-preview-plus
 
 ### Themes
 
