@@ -33,3 +33,4 @@
 'atom-text-editor.vim-mode.normal-mode':
   'ctrl-i': 'cursor-history:next'
   'ctrl-o': 'cursor-history:prev'
+  'ctrl-]': 'atom-ctags:go-to-declaration'

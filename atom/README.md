@@ -10,6 +10,7 @@
 * linter-gcc
 * sublime-style-column-selection
 * markdown-preview-plus
+* atom-ctags
 
 ### Themes
 
