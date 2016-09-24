@@ -10,49 +10,49 @@ vim模式。
 
 记录鼠标历史，之后可以通过快捷键前后跳转了~
 
-* minimap
+#### minimap
 
 源码文件的缩略~图~
 
-* sublime-style-column-selection
+#### sublime-style-column-selection
 
 列选择~
 
-* markdown-preview-plus
+#### markdown-preview-plus
 
 markdown预览~
 
-* switch-header-source
+#### switch-header-source
 
 切换c++的源文件和头文件~
 
-* language-protobuf
+#### language-protobuf
 
 高亮protobuf文件~
 
-* linter
+#### linter
 
 语法检查~
 
-* linter-gcc
+#### linter-gcc
 
 gcc语法检查~
 
-* autocomplete-clang
+#### autocomplete-clang
 
 clang补全
 
 GCC Include Paths -> c++标准库路径
 
-* atom-ctags
+#### atom-ctags
 
 跳转，每次保存文件会自动生成更新ctags文件。
 
-* linter-php
+#### linter-php
 
 php语法检查~
 
-* atom-autocomplete-php
+#### atom-autocomplete-php
 
 php补全~
 
