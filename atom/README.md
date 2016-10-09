@@ -56,6 +56,10 @@ php语法检查~
 
 php补全~
 
+### file-icons
+
+按文件后缀显示图标
+
 ## Themes
 
 ### UI Themes
