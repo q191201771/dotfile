@@ -20,6 +20,8 @@
   "file-icons": {}
   "linter-gcc":
     gccIncludePaths: " /usr/include/c++/4.2.1"
+  minimap:
+    absoluteMode: true
   "vim-mode":
     useClipboardAsDefaultRegister: false
     useSmartcaseForSearch: true
