@@ -4,8 +4,6 @@
 
 vim模式。
 
-去除勾选项 Use Clipboard As Default Register
-
 ### cursor-history
 
 记录鼠标历史，之后可以通过快捷键前后跳转了~
@@ -41,8 +39,6 @@ gcc语法检查~
 ### autocomplete-clang
 
 clang补全
-
-GCC Include Paths -> c++标准库路径
 
 ### atom-ctags
 
