@@ -10,16 +10,20 @@
     fileEncoding: "gbk"
     themes: [
       "one-dark-ui"
-      "base16-tomorrow-dark-theme"
+      "atom-dark-syntax"
     ]
   editor:
     fontFamily: "monaco"
-    fontSize: 18
+    fontSize: 16
+    invisibles: {}
+    preferredLineLength: 100
+    tabType: "hard"
   "exception-reporting":
     userId: "210fd886-7041-7380-8fda-8a8d0cf727a1"
   "file-icons": {}
   "linter-gcc":
-    gccIncludePaths: " /usr/include/c++/4.2.1"
+    execPath: "/usr/local/bin/g++-4.9"
+    gccIncludePaths: "/usr/local/include/c++/4.9.3/*"
   minimap:
     absoluteMode: true
   "vim-mode":
