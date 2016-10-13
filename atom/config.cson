@@ -3,21 +3,19 @@
     autoBuildTagsWhenActive: true
   "autocomplete-clang":
     includeSystemHeadersDocumentation: true
+  "autocomplete-python":
+    pythonPaths: "usr/bin/python"
   core:
     disabledPackages: [
       "symbols-view"
     ]
     fileEncoding: "gbk"
-    themes: [
-      "one-dark-ui"
-      "atom-dark-syntax"
-    ]
   editor:
     fontFamily: "monaco"
     fontSize: 16
     invisibles:
       eol: " "
-    preferredLineLength: 100
+      tab: " "
     showInvisibles: true
   "exception-reporting":
     userId: "210fd886-7041-7380-8fda-8a8d0cf727a1"
@@ -32,3 +30,15 @@
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+".console.python.text":
+  editor:
+    preferredLineLength: 100
+".python.regexp.source":
+  editor:
+    preferredLineLength: 100
+".python.source":
+  editor:
+    preferredLineLength: 100
+".python.text.traceback":
+  editor:
+    preferredLineLength: 100

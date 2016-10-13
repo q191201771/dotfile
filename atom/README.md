@@ -44,28 +44,36 @@ clang补全
 
 跳转，每次保存文件会自动生成更新ctags文件。
 
-### linter-php
+<!-- ### linter-php
 
 php语法检查~
 
 ### atom-autocomplete-php
 
-php补全~
+php补全~ -->
 
 ### file-icons
 
 按文件后缀显示图标
+
+### autocomplete-python
+
+python补全
 
 ## Themes
 
 ### UI Themes
 
 * One Dark
+* atom-material-ui
 
 ### Syntax Theme
 
+* One Dark
 * Atom Dark
 * Base16 Tomorrow Dark
+* Solarized Dark
+* atom-material-syntax
 
 ### char
 
