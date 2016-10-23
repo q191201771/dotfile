@@ -9,14 +9,20 @@
     disabledPackages: [
       "symbols-view"
     ]
-    fileEncoding: "gbk"
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "atom-light-syntax"
+    ]
   editor:
     fontFamily: "monaco"
     fontSize: 16
     invisibles:
       eol: " "
       tab: " "
+    preferredLineLength: 100
     showInvisibles: true
+    tabLength: 4
   "exception-reporting":
     userId: "210fd886-7041-7380-8fda-8a8d0cf727a1"
   "file-icons": {}
@@ -25,6 +31,8 @@
     gccIncludePaths: "/usr/local/include/c++/4.9.3"
   minimap:
     absoluteMode: true
+  "python-tools":
+    pythonPath: "/usr/local/Cellar/python/2.7.12_2/bin"
   "vim-mode":
     useClipboardAsDefaultRegister: false
     useSmartcaseForSearch: true
