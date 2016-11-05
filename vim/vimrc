@@ -179,6 +179,9 @@ set lazyredraw
 set incsearch
 set backspace=2
 set mouse=v
+if empty(glob('~/.vim'))
+    silent !mkdir ~/.vim
+endif
 if empty(glob('~/.vim/backup'))
     silent !mkdir ~/.vim/backup
 endif
