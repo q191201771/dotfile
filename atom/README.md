@@ -10,6 +10,7 @@
 * file-icons 按文件后缀显示图标
 * markdown-preview-plus markdown预览~
 * rst-preview rst预览~
+* git-time-machine 提交记录以及diff~
 * language-protobuf 高亮protobuf文件~
 * language-thrift 高亮thrift文件
 * linter 语法检查~
@@ -46,6 +47,7 @@ php补全~
 * atom-material-syntax
 * behave-theme
 * seti-syntax
+* github-atom-light-syntax
 
 ### char
 
