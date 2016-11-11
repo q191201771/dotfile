@@ -4,21 +4,29 @@
   "autocomplete-clang":
     includeSystemHeadersDocumentation: true
   "autocomplete-python":
-    pythonPaths: "usr/bin/python"
+    extraPaths: "/usr/local/lib/python2.7/site-packages"
+    outputProviderErrors: true
+    pythonPaths: "/usr/bin/python"
+    showTooltips: true
+    useSnippets: "required"
   core:
     disabledPackages: [
       "symbols-view"
     ]
     telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "atom-monokai"
+    ]
   editor:
     fontFamily: "monaco"
-    fontSize: 16
     invisibles:
       eol: " "
       tab: " "
     preferredLineLength: 120
     showInvisibles: true
     tabLength: 4
+    tabType: "soft"
   "exception-reporting":
     userId: "210fd886-7041-7380-8fda-8a8d0cf727a1"
   "file-icons": {}

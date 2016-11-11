@@ -30,3 +30,4 @@ Nov-01-17:45 gaia-dark-syntax
 Nov-01-17:49 python-indent
 Nov-01-17:52 linter-python-pep8
 Nov-02-20:53 git-plus
+Nov-11-11:03 atom-monokai
