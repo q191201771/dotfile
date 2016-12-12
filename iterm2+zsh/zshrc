@@ -1,12 +1,14 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/chef/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+export PATH=/usr/local/bin:$HOME/bin:$PATH:~/Documents/alibaba/OSS_SDK
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="awesomepanda"
-ZSH_THEME="agnoster"
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/renliang/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="agnoster"
+ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,14 +52,16 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git osx brew zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -81,13 +85,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi='vim'
-alias ll='ls -l'
+alias vi='/usr/local/bin/vim'
+alias vim='/usr/local/bin/vim'
+alias ll='ls -lrt'
+alias rm=$HOME/.rm.sh
 
-. <(npm completion)
+#. <(npm completion)
 
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-alias rm=$HOME/.rm.sh
+
+export GOPATH=~/go
