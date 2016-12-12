@@ -18,10 +18,7 @@ Oct-22-17:08 python-tools
 Oct-25-10:32 github-atom-light-syntax
 Oct-25-17:01 git-time-machine
 Oct-26-17:15 monokai
-Oct-27-13:17 nucleus-dark-ui
 Oct-27-13:17 cursor-history
-Oct-27-13:17 file-icons
-Oct-27-13:17 autocomplete-python
 Oct-27-13:18 minimap
 Oct-27-19:38 language-rpm-spec
 Oct-27-20:24 language-restructuredtext
@@ -29,5 +26,13 @@ Nov-01-17:45 flatwhite-syntax
 Nov-01-17:45 gaia-dark-syntax
 Nov-01-17:49 python-indent
 Nov-01-17:52 linter-python-pep8
-Nov-02-20:53 git-plus
 Nov-11-11:03 atom-monokai
+Nov-11-11:14 nucleus-dark-ui
+Nov-11-11:14 file-icons
+Nov-11-11:14 autocomplete-python
+Nov-11-11:14 git-plus
+Dec-01-15:46 nord-atom-syntax
+Dec-08-14:20 gloom
+Dec-08-15:46 zentabs
+Dec-12-11:31 ariake-dark-syntax
+Dec-12-16:16 colorblind-syntax

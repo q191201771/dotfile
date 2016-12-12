@@ -1,6 +1,7 @@
 "*":
   "atom-ctags":
     autoBuildTagsWhenActive: true
+    cmdArgs: "--exclude=/Users/renliang/Documents/alibaba/solocarsrv/third"
   "autocomplete-clang":
     includeSystemHeadersDocumentation: true
   "autocomplete-python":
@@ -12,14 +13,17 @@
   core:
     disabledPackages: [
       "symbols-view"
+      "minimap"
     ]
+    packagesWithKeymapsDisabled: []
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "atom-monokai"
+      "colorblind-syntax"
     ]
   editor:
     fontFamily: "monaco"
+    fontSize: 15
     invisibles:
       eol: " "
       tab: " "
@@ -31,12 +35,13 @@
     userId: "210fd886-7041-7380-8fda-8a8d0cf727a1"
   "file-icons": {}
   linter:
-    errorPanelHeight: 86
+    errorPanelHeight: 24
   "linter-gcc":
     execPath: "/usr/local/bin/g++-4.9"
     gccIncludePaths: "/usr/local/include/c++/4.9.3"
   minimap:
     absoluteMode: true
+    displayMinimapOnLeft: true
   "python-tools":
     pythonPath: "/usr/local/Cellar/python/2.7.12_2/bin"
   "split-diff":
