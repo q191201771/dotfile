@@ -9,7 +9,7 @@ ls -lrt ~/.atom/packages | awk 'NF == 9 && $9 != "README.md" {printf "%s-%02s-%s
 #cp ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings ./sublime_text/
 echo '* zshrc'
 cp ~/.zshrc ./iterm2+zsh/zshrc
-#echo '* vimrc'
-#cp ~/.vimrc ./vim/vimrc
+echo '* vimrc'
+cp ~/.vimrc ./vim/vimrc
 #echo '* bash_profile'
 #cp ~/.bash_profile ./bash_profile

@@ -18,8 +18,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'mhinz/vim-startify'
 "Plugin 'mizuchi/stl-syntax'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'rking/ag.vim'
 "Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'stanangeloff/php.vim'
@@ -49,7 +51,12 @@ map <silent> <Tab> :bn<CR>
 """"""""""""""""""""""""""""""""""
 "antares apprentice asu1dar automation autumn autumnleaf
 "Benokai BlackSea beekai behelit molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
-color benlight
+color automation
+
+""""""""""""""""""""""""
+"*****rking/ag.vim*****"
+""""""""""""""""""""""""
+set runtimepath^=~/.vim/bundle/ag.vim
 
 """"""""""""""""""""""""""""""""""""""
 "*****shawncplus/phpcomplete.vim*****"
@@ -195,9 +202,11 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 if !&scrolloff
-  set scrolloff=1
+  set scrolloff=3
 endif
 if !&sidescrolloff
   set sidescrolloff=5
 endif
 set display+=lastline
+set foldmethod=syntax
+set nofoldenable
