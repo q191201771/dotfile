@@ -11,10 +11,11 @@ Plugin 'a.vim'
 Plugin 'bling/vim-airline'
 "Plugin 'Cpp11-Syntax-Support'
 Plugin 'elzr/vim-json'
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'mhinz/vim-startify'
 "Plugin 'mizuchi/stl-syntax'
@@ -25,7 +26,7 @@ Plugin 'rking/ag.vim'
 "Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'stanangeloff/php.vim'
-Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'taglist.vim'
 Plugin 'valloric/youcompleteme'
@@ -51,7 +52,7 @@ map <silent> <Tab> :bn<CR>
 """"""""""""""""""""""""""""""""""
 "antares apprentice asu1dar automation autumn autumnleaf
 "Benokai BlackSea beekai behelit molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
-color automation
+color solarized
 
 """"""""""""""""""""""""
 "*****rking/ag.vim*****"
@@ -61,10 +62,10 @@ set runtimepath^=~/.vim/bundle/ag.vim
 """"""""""""""""""""""""""""""""""""""
 "*****shawncplus/phpcomplete.vim*****"
 """"""""""""""""""""""""""""""""""""""
-let g:phpcomplete_relax_static_constraint      = 1
-let g:phpcomplete_complete_for_unknown_classes = 1
-let g:phpcomplete_search_tags_for_variables    = 1
-let g:phpcomplete_parse_docblock_comments      = 1
+"let g:phpcomplete_relax_static_constraint      = 1
+"let g:phpcomplete_complete_for_unknown_classes = 1
+"let g:phpcomplete_search_tags_for_variables    = 1
+"let g:phpcomplete_parse_docblock_comments      = 1
 
 """"""""""""""""""""""""""""""""
 "*****stanangeloff/php.vim*****"
@@ -83,7 +84,7 @@ let g:phpcomplete_parse_docblock_comments      = 1
 """"""""""""""""""""""""""""""""
 "*****jiangmiao/auto-pairs*****"
 """"""""""""""""""""""""""""""""
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
+"let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
 "au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 
 """""""""""""""""
@@ -147,18 +148,18 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 """"""""""""""""""""""""
 "*****fatih/vim-go*****"
 """"""""""""""""""""""""
-let g:go_highlight_functions         = 1
-let g:go_highlight_methods           = 1
-let g:go_highlight_structs           = 1
-let g:go_highlight_interfaces        = 1
-let g:go_highlight_operators         = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command                 = "goimports"
+"let g:go_highlight_functions         = 1
+"let g:go_highlight_methods           = 1
+"let g:go_highlight_structs           = 1
+"let g:go_highlight_interfaces        = 1
+"let g:go_highlight_operators         = 1
+"let g:go_highlight_build_constraints = 1
+"let g:go_fmt_command                 = "goimports"
 
 """"""""""""""""""""""""""""""
 "*****Shougo/neocomplete*****"
 """"""""""""""""""""""""""""""
-let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_at_startup = 1
 
 """"""""""""""""""
 "*****global*****"
