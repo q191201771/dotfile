@@ -36,3 +36,4 @@ Dec-08-14:20 gloom
 Dec-08-15:46 zentabs
 Dec-12-11:31 ariake-dark-syntax
 Dec-12-16:16 colorblind-syntax
+Dec-16-17:08 aurora-theme
