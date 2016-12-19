@@ -32,10 +32,6 @@ cmake_install.cmake
 install_manifest.txt
 CTestTestfile.cmake
 
-##### sass #####
-.sass-cache/
-*.css.map
-
 ##### sublime text #####
 *.sublime-workspace
 *.sublime-project
@@ -44,11 +40,17 @@ CTestTestfile.cmake
 .*.swp
 *tags*
 .ycm_extra_conf.py
+.ycm_extra_conf.pyc
+
+##### MAC #####
+._Store
+.DS_Store
 
 ##### JS #####
 node_modules
 npm-debug.log
 
-##### MAC #####
-._Store
-.DS_Store
+##### sass #####
+.sass-cache/
+*.css.map
+
