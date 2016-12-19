@@ -50,14 +50,16 @@ map <silent> <Tab> :bn<CR>
 """"""""""""""""""""""""""""""""""
 "*****flazz/vim-colorschemes*****"
 """"""""""""""""""""""""""""""""""
-"antares apprentice asu1dar automation autumn autumnleaf
-"Benokai BlackSea beekai behelit molokai wasabi256 watermark wellsokai whitebox whitedust woju zenburn
+"antares apprentice asu1dar automation autumn autumnleaf Benokai BlackSea beekai behelit molokai wasabi256 watermark
+"wellsokai whitebox whitedust woju zenburn
+"molokai solarized
 color solarized
 
 """"""""""""""""""""""""
 "*****rking/ag.vim*****"
 """"""""""""""""""""""""
 set runtimepath^=~/.vim/bundle/ag.vim
+let g:ag_highlight=1
 
 """"""""""""""""""""""""""""""""""""""
 "*****shawncplus/phpcomplete.vim*****"
@@ -211,3 +213,4 @@ endif
 set display+=lastline
 set foldmethod=syntax
 set nofoldenable
+set fileencodings=utf-8,gb18030
