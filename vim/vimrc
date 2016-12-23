@@ -15,13 +15,13 @@ Plugin 'elzr/vim-json'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'mhinz/vim-startify'
 "Plugin 'mizuchi/stl-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 "Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
@@ -40,11 +40,11 @@ filetype plugin indent on
 """""""""""""""""""
 "*****mapping*****"
 """""""""""""""""""
-map <silent> <F2> :NERDTreeToggle<CR>
-map <silent> <F3> :TlistToggle<CR>
-map <silent> <F4> :A<CR>
-map <silent> <F5> :CtrlP<CR>
-map <silent> <F8> :!ctags -R .<CR>
+map <silent> <F2>  :NERDTreeToggle<CR>
+map <silent> <F3>  :TlistToggle<CR>
+map <silent> <F4>  :A<CR>
+map <silent> <F5>  :CtrlP<CR>
+map <silent> <F8>  :!ctags -R .<CR>
 map <silent> <Tab> :bn<CR>
 
 """"""""""""""""""""""""""""""""""
@@ -99,6 +99,7 @@ set tags=tags;/
 """""""""""""""""""""""""""""
 set laststatus=2
 let g:airline_theme="molokai"
+"let g:airline_theme="solarized"
 let g:airline#extensions#tabline#enabled        = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 "let g:airline#extensions#whitespace#enabled = 1
