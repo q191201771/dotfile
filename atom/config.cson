@@ -19,7 +19,7 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "aurora-theme"
+      "atom-monokai"
     ]
   editor:
     fontFamily: "monaco"

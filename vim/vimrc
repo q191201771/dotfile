@@ -40,12 +40,13 @@ filetype plugin indent on
 """""""""""""""""""
 "*****mapping*****"
 """""""""""""""""""
-map <silent> <F2>  :NERDTreeToggle<CR>
-map <silent> <F3>  :TlistToggle<CR>
-map <silent> <F4>  :A<CR>
-map <silent> <F5>  :CtrlP<CR>
-map <silent> <F8>  :!ctags -R .<CR>
-map <silent> <Tab> :bn<CR>
+nnoremap <silent> <F2>  :NERDTreeToggle<CR>
+nnoremap <silent> <F3>  :TlistToggle<CR>
+nnoremap <silent> <F4>  :A<CR>
+nnoremap <silent> <F5>  :CtrlP<CR>
+nnoremap <silent> <F6>  :Ag '<cword>' .<CR>
+nnoremap <silent> <F8>  :!ctags -R .<CR>
+nnoremap <silent> <Tab> :bn<CR>
 
 """"""""""""""""""""""""""""""""""
 "*****flazz/vim-colorschemes*****"
@@ -99,6 +100,7 @@ set tags=tags;/
 """""""""""""""""""""""""""""
 set laststatus=2
 let g:airline_theme="molokai"
+let g:airline_powerline_fonts = 1
 "let g:airline_theme="solarized"
 let g:airline#extensions#tabline#enabled        = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
