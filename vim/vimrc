@@ -52,6 +52,7 @@ nnoremap <silent> <Tab> :bn<CR>
 """""""""""""""""
 "*****ctrlp*****"
 """""""""""""""""
+""" ignore file/document list
 set wildignore=*/.git/*,*/.svn/*,*/tags
 let g:ctrlp_show_hidden=1
 
@@ -142,6 +143,9 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 "*****scrooloose/nerdtree*****"
 """""""""""""""""""""""""""""""
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden = 1
+""" ignore file/document list
+let NERDTreeIgnore=['\.pyc$', '.DS_Store']
 "autocmd vimenter * NERDTree
 
 """"""""""""""""""""""""""""""""
