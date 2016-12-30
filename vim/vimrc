@@ -9,6 +9,7 @@ call vundle#begin()
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
 
 Plugin 'a.vim'
 Plugin 'bling/vim-airline'
@@ -17,7 +18,6 @@ Plugin 'elzr/vim-json'
 "Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'mhinz/vim-startify'
 "Plugin 'mizuchi/stl-syntax'
@@ -48,6 +48,12 @@ nnoremap <silent> <F5>  :CtrlP<CR>
 nnoremap <silent> <F6>  :Ag '<cword>' .<CR>
 nnoremap <silent> <F8>  :!ctags -R .<CR>
 nnoremap <silent> <Tab> :bn<CR>
+
+"""""""""""""""""
+"*****ctrlp*****"
+"""""""""""""""""
+set wildignore=*/.git/*,*/.svn/*,*/tags
+let g:ctrlp_show_hidden=1
 
 """"""""""""""""""""""""""""""""""
 "*****flazz/vim-colorschemes*****"
