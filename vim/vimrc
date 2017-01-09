@@ -11,8 +11,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 
-Plugin 'a.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'a.vim'
 "Plugin 'Cpp11-Syntax-Support'
 Plugin 'elzr/vim-json'
 "Plugin 'fatih/vim-go'
@@ -32,7 +34,6 @@ Plugin 'rking/ag.vim'
 Plugin 'taglist.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'Vundle.vim'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
@@ -181,26 +182,27 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 "*****global*****"
 """"""""""""""""""
 syntax on
+""" ignorecase
+set ic
+set incsearch
+set hlsearch
+""" number
 set nu
+set cindent
+""" tabstop shiftwidth softtabstop
 set ts=4
 set sw=4
 set sts=4
-autocmd FileType javascript,html,css set ts=2
-autocmd FileType javascript,html,css set sw=2
-autocmd FileType javascript,html,css set sts=2
+autocmd FileType cc,hpp,javascript,html,css set ts=2
+autocmd FileType cc,hpp,javascript,html,css set sw=2
+autocmd FileType cc,hpp,javascript,html,css set sts=2
+set expandtab
+""" colorcolumn textwidth
 set cc=120
 "set tw=120
-set tabstop=4
-set hlsearch
-set cindent
-set softtabstop=4
-set shiftwidth=4
-set ic
-set expandtab
 set ofu=syntaxcomplete
 set autochdir
 set lazyredraw
-set incsearch
 set backspace=2
 set mouse=v
 if empty(glob('~/.vim'))
