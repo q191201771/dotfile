@@ -31,6 +31,9 @@
 import os
 import ycm_core
 
+# CHEF
+DIR_OF_THIS_SCRIPT = os.path.dirname(os.path.abspath(__file__))
+
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
@@ -60,33 +63,11 @@ flags = [
 '-x',
 'c++',
 '-isystem',
-'/Library/Developer/CommandLineTools/usr/include/c++/v1'
+'/Library/Developer/CommandLineTools/usr/include/c++/v1',
+
 '-isystem',
-'./3rd/include',
-'-I',
-'.',
-'-I',
-'./3rd/include',
-#'-isystem',
-#'../BoostParts',
-#'-isystem',
-# This path will only work on OS X, but extra paths that don't exist are not
-# harmful
-#'/System/Library/Frameworks/Python.framework/Headers',
-#'-isystem',
-#'../llvm/include',
-#'-isystem',
-#'../llvm/tools/clang/include',
-#'-I',
-#'./ClangCompleter',
-#'-isystem',
-#'./tests/gmock/gtest',
-#'-isystem',
-#'./tests/gmock/gtest/include',
-#'-isystem',
-#'./tests/gmock',
-#'-isystem',
-#'./tests/gmock/include',
+DIR_OF_THIS_SCRIPT+'/3rd/include',
+
 ]
 
 
