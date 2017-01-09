@@ -10,31 +10,29 @@ call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
 Plugin 'a.vim'
-"Plugin 'Cpp11-Syntax-Support'
 Plugin 'elzr/vim-json'
-"Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-signify'
 Plugin 'mhinz/vim-startify'
-"Plugin 'mizuchi/stl-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'taglist.vim'
+Plugin 'Vundle.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'valloric/youcompleteme'
+"Plugin 'Cpp11-Syntax-Support'
+"Plugin 'fatih/vim-go'
+"Plugin 'mizuchi/stl-syntax'
 "Plugin 'Shougo/neocomplete'
 "Plugin 'stanangeloff/php.vim'
 "Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'taglist.vim'
-Plugin 'valloric/youcompleteme'
-Plugin 'Vundle.vim'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 filetype plugin indent on
@@ -60,10 +58,9 @@ let g:ctrlp_show_hidden=1
 """"""""""""""""""""""""""""""""""
 "*****flazz/vim-colorschemes*****"
 """"""""""""""""""""""""""""""""""
-"antares apprentice asu1dar automation autumn autumnleaf Benokai BlackSea beekai behelit molokai wasabi256 watermark
-"wellsokai whitebox whitedust woju zenburn
 "molokai solarized
 color solarized
+set background=dark
 
 """"""""""""""""""""""""
 "*****rking/ag.vim*****"
@@ -118,9 +115,10 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 """"""""""""""""""""""""""""""""""""""""""""
 "*****octol/vim-cpp-enhanced-highlight*****"
 """"""""""""""""""""""""""""""""""""""""""""
-let g:cpp_class_scope_highlight = 1
+let g:cpp_class_scope_highlight           = 1
 let g:cpp_experimental_template_highlight = 1
-let c_no_curly_error=1
+let g:cpp_concepts_highlight              = 1
+let c_no_curly_error                      = 1
 
 """""""""""""""""""""""""""""
 "*****mhinz/vim-signify*****"
@@ -146,7 +144,7 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden = 1
 """ ignore file/document list
-let NERDTreeIgnore=['\.pyc$', '.DS_Store']
+let NERDTreeIgnore=['\.pyc$', '.DS_Store', '.sconsign.dblite']
 "autocmd vimenter * NERDTree
 
 """"""""""""""""""""""""""""""""
