@@ -19,16 +19,14 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "atom-monokai"
+      "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontFamily: "monaco"
-    fontSize: 15
+    fontSize: 16
     invisibles:
       eol: " "
       tab: " "
     preferredLineLength: 120
-    showInvisibles: true
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
