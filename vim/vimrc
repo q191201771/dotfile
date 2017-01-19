@@ -28,6 +28,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'valloric/youcompleteme'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
 "Plugin 'Cpp11-Syntax-Support'
 "Plugin 'fatih/vim-go'
 "Plugin 'mizuchi/stl-syntax'
@@ -64,6 +65,9 @@ map <Down>  <Nop>
 "ctrl+t
 "ctrl+i
 "ctrl+o
+"注释
+"<leader>cb
+"<leader>cu
 
 """""""""""""""""
 "*****ctrlp*****"
@@ -192,6 +196,16 @@ let g:tagbar_type_cpp = {
       \ 'union'     : 'u'
   \ }
 \ }
+
+""""""""""""""""""""""""""""""""""""
+"*****scrooloose/nerdcommenter*****"
+""""""""""""""""""""""""""""""""""""
+let g:NERDSpaceDelims            = 1
+let g:NERDCompactSexyComs        = 1
+let g:NERDDefaultAlign           = 'left'
+let g:NERDAltDelims_java         = 1
+let g:NERDCommentEmptyLines      = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 """"""""""""""""""""""""
 "*****fatih/vim-go*****"
