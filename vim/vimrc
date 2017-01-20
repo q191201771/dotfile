@@ -44,13 +44,14 @@ filetype plugin indent on
 "*****mapping*****"
 """""""""""""""""""
 let mapleader=";"
-nnoremap <silent> <F2>  :NERDTreeToggle<CR>
-nnoremap <silent> <F3>  :TagbarToggle<CR>
-nnoremap <silent> <F4>  :A<CR>
-nnoremap <silent> <F5>  :CtrlP<CR>
-nnoremap <silent> <F6>  :Ag '<cword>' .<CR>
-nnoremap <silent> <F8>  :!ctags -R .<CR>
-nnoremap <silent> <Tab> :bn<CR>
+nnoremap <silent> <F2>    :NERDTreeToggle<CR>
+nnoremap <silent> <F3>    :TagbarToggle<CR>
+nnoremap <silent> <F4>    :A<CR>
+nnoremap <silent> <F5>    :CtrlP<CR>
+nnoremap <silent> <F6>    :Ag '<cword>' .<CR>
+nnoremap <silent> <F8>    :!ctags -R .<CR>
+nnoremap <silent> <leader>h :bp<CR>
+nnoremap <silent> <leader>l :bn<CR>
 map <Left>  <Nop>
 map <Right> <Nop>
 map <Up>    <Nop>
@@ -134,8 +135,11 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 "*****scrooloose/nerdtree*****"
 """""""""""""""""""""""""""""""
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden = 1
-let NERDTreeIgnore=['\.pyc$', '.DS_Store', '.sconsign.dblite', '.svn']
+let NERDTreeShowHidden       = 1
+let NERDTreeIgnore           = ['\.pyc$', '.DS_Store', '.sconsign.dblite', '.svn']
+let NERDTreeWinSize          = 32
+let NERDTreeMinimalUI        = 1
+let NERDTreeAutoDeleteBuffer = 1
 "autocmd vimenter * NERDTree
 
 """"""""""""""""""""""""""""""""
