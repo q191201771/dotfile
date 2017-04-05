@@ -81,7 +81,8 @@ let g:ctrlp_show_hidden=1
 """"""""""""""""""""""""""""""""""
 set background=dark
 "lucius molokai solarized desert zenburn
-color lucius
+"zenburn的搜索高亮不明显
+color desert
 
 """"""""""""""""""""""""
 "*****rking/ag.vim*****"
@@ -214,7 +215,7 @@ let g:NERDTrimTrailingWhitespace = 1
 """"""""""""""""""""""""""""""""""
 "*****valloric/youcompleteme*****"
 """"""""""""""""""""""""""""""""""
-let g:ycm_confirm_extra_conf                        = 0
+let g:ycm_confirm_extra_conf                        = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments                      = 1
 let g:ycm_min_num_of_chars_for_completion           = 1
@@ -347,8 +348,54 @@ set fileencodings=utf-8,gb18030
 
 """ 自定义一些高亮关键字
 autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|NOTICE\|WARN\)')
-autocmd Syntax * call matchadd('Todo', '\W\zs\(CHEFTODO\|CHEFFIXME\|CHEFERASEME\)')
+autocmd Syntax * call matchadd('Todo', '\W\zs\(CHEFTODO\|CHEFFIXME\|CHEFERASEME\|CHEFTMP\)')
 autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@author\|@desc\|@brief\|@function\|@param\|@return\|@notice\)')
 
-""" TODO
-""" * 根据文件类型自动插入文件头部
+""" 根据文件类型自动插入文件头部
+function HeaderPython()
+    call setline(1, "#!/usr/bin/env python")
+    call append(1, "# -*- coding: utf-8 -*-")
+    normal G
+    normal o
+endf
+autocmd bufnewfile *.py call HeaderPython()
+
+function HeaderBash()
+    call setline(1, "#!/usr/bin/env bash")
+    normal G
+    normal o
+endf
+autocmd bufnewfile *.sh call HeaderBash()
+
+function HeaderCpp()
+    call setline(1, "/**")
+    call  append(1, " * @file   ".expand("%")."/xxx")
+    call  append(2, " * @deps   xxx")
+    call  append(3, " *")
+    call  append(4, " * @author")
+    call  append(5, " *   chef <191201771@qq.com>")
+    call  append(6, " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(7, " *     -initial release xxxx-xx-xx")
+    call  append(8, " *")
+    call  append(9, " * @brief")
+    call  append(10, " *   xxx")
+    call  append(11, " *")
+    call  append(12, " */")
+    call  append(13, "")
+    call  append(14, "#ifndef xxx")
+    call  append(15, "#define xxx")
+    call  append(16, "")
+    call  append(17, "namespace xxx {")
+    call  append(18, "")
+    call  append(19, "class xxx {")
+    call  append(20, "  public:")
+    call  append(21, "}; /// class xxx")
+    call  append(22, "")
+    call  append(23, "} /// namespace xxx")
+    call  append(24, "")
+    call  append(25, "#endif /// xxx")
+
+    normal G
+    normal o
+endf
+autocmd bufnewfile *.h,*.hpp call HeaderCpp()
