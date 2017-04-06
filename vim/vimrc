@@ -29,6 +29,7 @@ Plugin 'valloric/youcompleteme'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
+"Plugin 'myusuf3/numbers.vim'
 "Plugin 'Cpp11-Syntax-Support'
 "Plugin 'fatih/vim-go'
 "Plugin 'mizuchi/stl-syntax'
@@ -271,6 +272,10 @@ let g:ycm_seed_identifiers_with_syntax              = 1
 "*****global*****"
 """"""""""""""""""
 "set ofu=syntaxcomplete
+set ttyfast
+set wrapscan
+set report=0
+set synmaxcol=200
 
 """ 打开文件跳转到最后修改处
 if has("autocmd")
@@ -290,9 +295,18 @@ endif
 if empty(glob('~/.vim/undo'))
     silent !mkdir ~/.vim/undo
 endif
+if empty(glob('~/.vim/viminfo'))
+    silent !mkdir ~/.vim/viminfo
+endif
+set backup
 set backupdir=~/.vim/backup//
+set backupext=-vimbackup
+set backupskip=
 set directory=~/.vim/swap//
+set updatecount=100
+set undofile
 set undodir=~/.vim/undo//
+set viminfo='100,n$HOME/.vim/viminfo'
 
 """ 非INSERT模式时高亮显示光标所在行
 set cursorline
