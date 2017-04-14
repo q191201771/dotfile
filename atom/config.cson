@@ -19,10 +19,9 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "base16-tomorrow-dark-theme"
+      "atom-light-syntax"
     ]
   editor:
-    fontSize: 16
     invisibles:
       eol: " "
       tab: " "
