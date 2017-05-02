@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+### -----变量-----
+### 定义变量
+name="unknown"
+### 重新赋值
+name="chef"
+### 使用变量
+echo name:${name}
+
+### for循环
+for ((i=0; i<4; i++));do
+    echo ${i}
+done
+
+echo '-----'
+echo `uname`
+echo '-----'
+
+### if控制
+if [[ `uname`=='Darwin' ]]; then
+    echo "hit if"
+elif [[ `uname`=='wrong' ]];
+    echo 'hit elif'
+else;
+    echo 'hit else'
+fi
+
+### -----字符串------
+### 字符串转义
+str="'\""
+echo ${str}
+### 字符串拼接
+echo "hello ${name}!"
+### 字符串长度
+echo "length of '${name}' is ${#name}."
+### 提取子串
+str="hello world"
+echo ${str:1:4}
