@@ -9,7 +9,9 @@ export ZSH=/Users/renliang/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # agnoster
 # fino
-ZSH_THEME="random"
+# pure
+# random
+ZSH_THEME="ys"
 #ZSH_THEME="random"
 
 # Uncomment the following line to use case-sensitive completion.

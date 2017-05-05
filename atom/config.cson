@@ -19,7 +19,7 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "atom-light-syntax"
+      "atom-monokai"
     ]
   editor:
     invisibles:

@@ -63,13 +63,11 @@ map <Down>  <Nop>
 "noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 "跳转相关
 "g]
-"ctrl+]
 "ctrl+t
+"ctrl+]
 "ctrl+i
 "ctrl+o
-"注释
-"<leader>cb
-"<leader>cu
+"za fold open close
 
 """""""""""""""""
 "*****ctrlp*****"
@@ -80,10 +78,10 @@ let g:ctrlp_show_hidden=1
 """"""""""""""""""""""""""""""""""
 "*****flazz/vim-colorschemes*****"
 """"""""""""""""""""""""""""""""""
-set background=dark
 "lucius molokai solarized desert zenburn
 "zenburn的搜索高亮不明显
-color lucius
+colorscheme solarized
+set background=dark
 
 """"""""""""""""""""""""
 "*****rking/ag.vim*****"
@@ -267,7 +265,6 @@ let g:ycm_seed_identifiers_with_syntax              = 1
 "let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
 "au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 
-
 """"""""""""""""""
 "*****global*****"
 """"""""""""""""""
@@ -367,8 +364,15 @@ autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@author\|@desc\|@br
 
 """ 根据文件类型自动插入文件头部
 function HeaderPython()
-    call setline(1, "#!/usr/bin/env python")
-    call append(1, "# -*- coding: utf-8 -*-")
+    call setline(1,  "#!/usr/bin/env python")
+    call  append(1,  "# -*- coding: utf-8 -*-")
+    call  append(2,  "# @file   ".expand("%"))
+    call  append(3,  "# @author")
+    call  append(4,  "#   chef <191201771@qq.com>")
+    call  append(5,  "#     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(6,  "#     -initial release xxxx-xx-xx")
+    call  append(7,  "# @brief")
+    call  append(8, "#   xxx")
     normal G
     normal o
 endf
@@ -376,22 +380,29 @@ autocmd bufnewfile *.py call HeaderPython()
 
 function HeaderBash()
     call setline(1, "#!/usr/bin/env bash")
+    call  append(1,  "# @file   ".expand("%"))
+    call  append(2,  "# @author")
+    call  append(3,  "#   chef <191201771@qq.com>")
+    call  append(4,  "#     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(5,  "#     -initial release xxxx-xx-xx")
+    call  append(6,  "# @brief")
+    call  append(7, "#   xxx")
     normal G
     normal o
 endf
 autocmd bufnewfile *.sh call HeaderBash()
 
 function HeaderCpp()
-    call setline(1, "/**")
-    call  append(1, " * @file   ".expand("%")."/xxx")
-    call  append(2, " * @deps   xxx")
-    call  append(3, " *")
-    call  append(4, " * @author")
-    call  append(5, " *   chef <191201771@qq.com>")
-    call  append(6, " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
-    call  append(7, " *     -initial release xxxx-xx-xx")
-    call  append(8, " *")
-    call  append(9, " * @brief")
+    call setline(1,  "/**")
+    call  append(1,  " * @file   ".expand("%")."/xxx")
+    call  append(2,  " * @deps   xxx")
+    call  append(3,  " *")
+    call  append(4,  " * @author")
+    call  append(5,  " *   chef <191201771@qq.com>")
+    call  append(6,  " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(7,  " *     -initial release xxxx-xx-xx")
+    call  append(8,  " *")
+    call  append(9,  " * @brief")
     call  append(10, " *   xxx")
     call  append(11, " *")
     call  append(12, " */")
