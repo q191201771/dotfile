@@ -364,14 +364,14 @@ autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@author\|@desc\|@br
 
 """ 根据文件类型自动插入文件头部
 function HeaderPython()
-    call setline(1,  "#!/usr/bin/env python")
-    call  append(1,  "# -*- coding: utf-8 -*-")
-    call  append(2,  "# @file   ".expand("%"))
-    call  append(3,  "# @author")
-    call  append(4,  "#   chef <191201771@qq.com>")
-    call  append(5,  "#     -created ".strftime("%Y-%m-%d %H:%M:%S"))
-    call  append(6,  "#     -initial release xxxx-xx-xx")
-    call  append(7,  "# @brief")
+    call setline(1, "#!/usr/bin/env python")
+    call  append(1, "# -*- coding: utf-8 -*-")
+    call  append(2, "# @file   ".expand("%"))
+    call  append(3, "# @author")
+    call  append(4, "#   chef <191201771@qq.com>")
+    call  append(5, "#     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(6, "#     -initial release xxxx-xx-xx")
+    call  append(7, "# @brief")
     call  append(8, "#   xxx")
     normal G
     normal o
@@ -380,12 +380,12 @@ autocmd bufnewfile *.py call HeaderPython()
 
 function HeaderBash()
     call setline(1, "#!/usr/bin/env bash")
-    call  append(1,  "# @file   ".expand("%"))
-    call  append(2,  "# @author")
-    call  append(3,  "#   chef <191201771@qq.com>")
-    call  append(4,  "#     -created ".strftime("%Y-%m-%d %H:%M:%S"))
-    call  append(5,  "#     -initial release xxxx-xx-xx")
-    call  append(6,  "# @brief")
+    call  append(1, "# @file   ".expand("%"))
+    call  append(2, "# @author")
+    call  append(3, "#   chef <191201771@qq.com>")
+    call  append(4, "#     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(5, "#     -initial release xxxx-xx-xx")
+    call  append(6, "# @brief")
     call  append(7, "#   xxx")
     normal G
     normal o
