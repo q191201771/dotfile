@@ -32,6 +32,9 @@ cmake_install.cmake
 install_manifest.txt
 CTestTestfile.cmake
 
+##### makefile #####
+# *.d
+
 ##### sublime text #####
 *.sublime-workspace
 *.sublime-project
@@ -42,11 +45,15 @@ CTestTestfile.cmake
 .ycm_extra_conf.py
 .ycm_extra_conf.pyc
 
-##### MAC #####
+##### xcode #####
+xcshareddata
+xcuserdata
+
+##### macos #####
 ._Store
 .DS_Store
 
-##### JS #####
+##### js #####
 node_modules
 npm-debug.log
 
