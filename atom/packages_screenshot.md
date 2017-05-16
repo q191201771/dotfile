@@ -26,11 +26,11 @@ Nov-01-2016 flatwhite-syntax
 Nov-01-2016 gaia-dark-syntax
 Nov-01-2016 python-indent
 Nov-01-2016 linter-python-pep8
-Nov-11-11:03 atom-monokai
-Nov-11-11:14 nucleus-dark-ui
-Nov-11-11:14 file-icons
-Nov-11-11:14 autocomplete-python
-Nov-11-11:14 git-plus
+Nov-11-2016 atom-monokai
+Nov-11-2016 nucleus-dark-ui
+Nov-11-2016 file-icons
+Nov-11-2016 autocomplete-python
+Nov-11-2016 git-plus
 Dec-01-15:46 nord-atom-syntax
 Dec-08-14:20 gloom
 Dec-08-15:46 zentabs

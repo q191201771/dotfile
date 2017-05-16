@@ -97,7 +97,6 @@ set tags=tags;/
 """""""""""""""""""""""""""""
 "*****bling/vim-airline*****"
 """""""""""""""""""""""""""""
-set laststatus=2
 let g:airline_theme="molokai"
 "let g:airline_theme="solarized"
 let g:airline_powerline_fonts                   = 1
@@ -317,7 +316,12 @@ set incsearch
 """ 高亮搜索
 set hlsearch
 
+""" 始终显示状态行
+set laststatus=2
+""" 命令补全
+set wildmenu
 """ 高亮
+syntax enable
 syntax on
 """ 行号
 set nu
