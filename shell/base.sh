@@ -1,4 +1,24 @@
 #!/usr/bin/env bash
+# @file   base.sh
+# @author
+#   chef <191201771@qq.com>
+#     -created 2017-05-16 20:23:34
+#     -initial release xxxx-xx-xx
+# @brief
+#   xxx
+
+### 演示脚本传参
+usage() {
+    echo "Usage: $0 <from> <to>"
+}
+
+[ $# != 2 ] && {
+    usage
+    exit 1
+}
+
+from=$1
+to=$2
 
 ### 定义变量
 name="unknown"
