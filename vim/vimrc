@@ -429,3 +429,18 @@ function HeaderCpp()
     normal o
 endf
 autocmd bufnewfile *.h,*.hpp call HeaderCpp()
+
+function Cpp()
+    call setline(1, "/**")
+    call  append(1, " * @file   ".expand("%"))
+    call  append(2, " * @author")
+    call  append(3, " *   chef <191201771@qq.com>")
+    call  append(4, " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(5, " *     -initial release xxxx-xx-xx")
+    call  append(6, " *")
+    call  append(7, " */")
+
+    normal G
+    normal o
+endf
+autocmd bufnewfile *.c,*.cc,*.cpp call Cpp()
