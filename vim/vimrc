@@ -365,7 +365,7 @@ set fileencodings=utf-8,gb18030
 """ 自定义一些高亮关键字
 autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|NOTICE\|WARN\)')
 autocmd Syntax * call matchadd('Todo', '\W\zs\(CHEFTODO\|CHEFFIXME\|CHEFERASEME\|CHEFTMP\)')
-autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@author\|@desc\|@brief\|@function\|@param\|@return\|@notice\)')
+autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@platform\|@author\|@desc\|@brief\|@function\|@param\|@return\|@notice\)')
 
 """ 根据文件类型自动插入文件头部
 function HeaderPython()
