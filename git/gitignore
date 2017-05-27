@@ -49,6 +49,11 @@ CTestTestfile.cmake
 xcshareddata
 xcuserdata
 
+##### virsual studio #####
+.vs
+*.vcxproj.filters
+*.vcxproj.user
+
 ##### macos #####
 ._Store
 .DS_Store
