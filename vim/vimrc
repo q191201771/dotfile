@@ -345,9 +345,9 @@ set nofoldenable
 """ 对齐
 set cindent
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 autocmd FileType cc,hpp,javascript,html,css set tabstop=2
 autocmd FileType cc,hpp,javascript,html,css set shiftwidth=2
 autocmd FileType cc,hpp,javascript,html,css set softtabstop=2
