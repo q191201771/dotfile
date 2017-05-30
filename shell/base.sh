@@ -96,6 +96,10 @@ else
     echo '/home not exist!'
 fi
 
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    echo 'vundle not installed yet.'
+fi
+
 ### 遍历文件夹
 for item in /*; do
     echo $item
