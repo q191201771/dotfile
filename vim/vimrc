@@ -268,7 +268,27 @@ let g:ycm_seed_identifiers_with_syntax              = 1
 """"""""""""""""""
 "*****global*****"
 """"""""""""""""""
-"set ofu=syntaxcomplete
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+if has('cmdline_info')
+  set ruler
+  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+  set showcmd
+endif
+if has('statusline')
+    set laststatus=2
+
+    " Broken down into easily includeable segments
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    "set statusline+=%{fugitive#statusline()} " Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    set statusline+=\ [%{getcwd()}]          " Current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
+
+set hidden    " Allow buffer switching without saving
+set history=1000
 set ttyfast
 set wrapscan
 set report=0
@@ -317,8 +337,6 @@ set incsearch
 """ 高亮搜索
 set hlsearch
 
-""" 始终显示状态行
-set laststatus=2
 """ 命令补全
 set wildmenu
 """ 高亮
@@ -444,3 +462,5 @@ function Cpp()
     normal o
 endf
 autocmd bufnewfile *.c,*.cc,*.cpp call Cpp()
+
+"set ofu=syntaxcomplete
