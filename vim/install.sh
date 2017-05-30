@@ -21,3 +21,7 @@ fi
 
 echo 'install vundle plugin...'
 vim +PluginInstall +qall
+
+echo 'install YCM...'
+cd ~/.vim/bundle/youcompleteme
+python install.py --clang-completer
