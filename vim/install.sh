@@ -24,4 +24,5 @@ vim +PluginInstall +qall
 
 echo 'install YCM...'
 cd ~/.vim/bundle/youcompleteme
+sudo apt-get install cmake -y
 python install.py --clang-completer
