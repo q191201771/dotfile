@@ -58,7 +58,7 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""""
   "lucius molokai solarized desert zenburn
   "zenburn的搜索高亮不明显
-  colorscheme solarized
+  colorscheme lucius
   set background=dark
 
   """"""""""""""""""""""""
@@ -438,18 +438,15 @@ function HeaderCpp()
     call  append(11, " *")
     call  append(12, " */")
     call  append(13, "")
-    call  append(14, "#ifndef xxx")
-    call  append(15, "#define xxx")
-    call  append(16, "")
-    call  append(17, "namespace xxx {")
-    call  append(18, "")
-    call  append(19, "class xxx {")
-    call  append(20, "  public:")
-    call  append(21, "}; /// class xxx")
-    call  append(22, "")
-    call  append(23, "} /// namespace xxx")
-    call  append(24, "")
-    call  append(25, "#endif /// xxx")
+    call  append(14, "#pragma once")
+    call  append(15, "")
+    call  append(16, "namespace xxx {")
+    call  append(17, "")
+    call  append(18, "class xxx {")
+    call  append(19, "  public:")
+    call  append(20, "}; /// class xxx")
+    call  append(21, "")
+    call  append(22, "} /// namespace xxx")
 
     normal G
     normal o
