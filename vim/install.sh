@@ -24,5 +24,9 @@ vim +PluginInstall +qall
 
 echo 'install YCM...'
 cd ~/.vim/bundle/youcompleteme
-sudo apt-get install cmake -y
+if [[ `uname -s` == 'Darwin' ]]; then
+  brew install cmake
+elif [[ `uname -s` == 'Linux' ]]; then
+  sudo apt-get install cmake -y
+fi
 python install.py --clang-completer
