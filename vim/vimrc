@@ -35,6 +35,8 @@ if exists('g:has_vundle')
   Plugin 'majutsushi/tagbar'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'ConradIrwin/vim-bracketed-paste'
+  Plugin 'vim-scripts/indentpython.vim'
+  Plugin 'nvie/vim-flake8'
   "Plugin 'myusuf3/numbers.vim'
   "Plugin 'Cpp11-Syntax-Support'
   "Plugin 'fatih/vim-go'
@@ -58,8 +60,8 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""""
   "lucius molokai solarized desert zenburn
   "zenburn的搜索高亮不明显
-  colorscheme lucius
-  set background=dark
+  colorscheme zenburn
+  "set background=dark
 
   """"""""""""""""""""""""
   "*****rking/ag.vim*****"
@@ -198,6 +200,11 @@ if exists('g:has_vundle')
   let g:ycm_seed_identifiers_with_syntax              = 1
   "let g:ycm_cache_omnifunc                      = 0
 
+  """"""""""""""""""""""""""""""""""
+  "*****nvie/vim-flake8*****"
+  """"""""""""""""""""""""""""""""""
+  let python_highlight_all=1
+
   """"""""""""""""""""""""
   "*****fatih/vim-go*****"
   """"""""""""""""""""""""
@@ -255,6 +262,8 @@ nnoremap <silent> <F6>    :Ag '<cword>' .<CR>
 nnoremap <silent> <F8>    :!ctags -R .<CR>
 nnoremap <silent> <leader>h :bp<CR>
 nnoremap <silent> <leader>l :bn<CR>
+autocmd FileType python
+    \ map <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <Left>  <Nop>
 map <Right> <Nop>
 map <Up>    <Nop>
@@ -274,6 +283,7 @@ map <Down>  <Nop>
 """"""""""""""""""
 "*****global*****"
 """"""""""""""""""
+set fileformat=unix
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 set list
@@ -374,9 +384,18 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-autocmd FileType cc,hpp,javascript,html,css set tabstop=2
-autocmd FileType cc,hpp,javascript,html,css set shiftwidth=2
-autocmd FileType cc,hpp,javascript,html,css set softtabstop=2
+autocmd FileType cc,hpp,javascript,html,css
+    \ set tabstop=2
+    \ set shiftwidth=2
+    \ set softtabstop=2
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 """ 切换当前目录
 set autochdir
@@ -468,4 +487,12 @@ function Cpp()
 endf
 autocmd bufnewfile *.c,*.cc,*.cpp call Cpp()
 
-"set ofu=syntaxcomplete
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
