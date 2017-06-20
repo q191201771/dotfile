@@ -5,7 +5,7 @@
 #     -created 2017-05-30 09:57:12
 #     -initial release xxxx-xx-xx
 # @brief
-#   xxx
+#   deps flake8 cmake
 
 echo 'cp vimrc...'
 cp vimrc ~/.vimrc
