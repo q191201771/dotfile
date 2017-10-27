@@ -8,4 +8,8 @@ cmd + p            ->    最近打开的文件
 插件
 * C/C++    by Microsoft
 * Go       by lukehoban
+* MagicPython
+* Python
+* Python for VSCode
+* Thrift
 * Vim      by vscodevim
