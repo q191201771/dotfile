@@ -115,7 +115,7 @@ if exists('g:has_vundle')
   """""""""""""""""""""""""""""""
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   let NERDTreeShowHidden       = 1
-  let NERDTreeIgnore           = ['\.pyc$', '.DS_Store', '.sconsign.dblite', '.svn']
+  let NERDTreeIgnore           = ['\.pyc$', '.DS_Store', '.sconsign.dblite', '.svn', '\.pyc$']
   let NERDTreeWinSize          = 32
   "let NERDTreeMinimalUI        = 1
   let NERDTreeAutoDeleteBuffer = 1
