@@ -1,3 +1,6 @@
+" 禁用 vi 兼容模式
+set nocompatible
+
 """"""""""""""""""
 "*****Vundle*****"
 """"""""""""""""""
@@ -6,16 +9,18 @@ if !empty(glob('~/.vim/bundle/Vundle.vim'))
 endif
 
 if exists('g:has_vundle')
-  set nocompatible
+
   filetype off
 
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 
+  Plugin 'vim-scripts/scons.vim'
+  Plugin 'Yggdroot/LeaderF'
+  Plugin 'w0rp/ale'
   Plugin 'chr4/nginx.vim'
   Plugin 'ludovicchabant/vim-gutentags'
   Plugin 'scrooloose/nerdtree'
-  "Plugin 'scrooloose/syntastic'
   Plugin 'kien/ctrlp.vim'
   Plugin 'bling/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
@@ -34,9 +39,10 @@ if exists('g:has_vundle')
   Plugin 'Xuyuanp/nerdtree-git-plugin'
   Plugin 'valloric/youcompleteme'
   Plugin 'terryma/vim-smooth-scroll'
-  Plugin 'majutsushi/tagbar'
+  "Plugin 'majutsushi/tagbar'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'ConradIrwin/vim-bracketed-paste'
+  "Plugin 'scrooloose/syntastic'
   "Plugin 'vim-scripts/indentpython.vim'
   "Plugin 'nvie/vim-flake8'
   "Plugin 'myusuf3/numbers.vim'
@@ -49,7 +55,34 @@ if exists('g:has_vundle')
   "Plugin 'taglist.vim'
 
   call vundle#end()
-  filetype plugin indent on
+
+  """""""""""""""""""""
+  "*****scons.vim*****"
+  """""""""""""""""""""
+  au BufNewFile,BufRead SCons* set filetype=scons
+
+  """""""""""""""
+  "*****ale*****"
+  """""""""""""""
+  "let g:ale_linters_explicit = 1
+  let g:ale_completion_delay = 500
+  let g:ale_echo_delay = 20
+  let g:ale_lint_delay = 500
+  let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+  let g:ale_lint_on_text_changed = 'normal'
+  let g:ale_lint_on_insert_leave = 1
+  let g:airline#extensions#ale#enabled = 1
+  let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+  let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+  let g:ale_c_cppcheck_options = ''
+  let g:ale_cpp_cppcheck_options = ''
+  "let g:ale_sign_error = "\ue009\ue009"
+  hi! clear SpellBad
+  hi! clear SpellCap
+  hi! clear SpellRare
+  hi! SpellBad gui=undercurl guisp=red
+  hi! SpellCap gui=undercurl guisp=blue
+  hi! SpellRare gui=undercurl guisp=magenta
 
   """""""""""""""""""""""""
   "*****vim-gutentags*****"
@@ -75,7 +108,7 @@ if exists('g:has_vundle')
   """""""""""""""""
   "*****ctrlp*****"
   """""""""""""""""
-  set wildignore=*/.git/*,*/.svn/*,*/.tags
+  set wildignore=*/.git/*,*/.svn/*,*/.tags,*/*.o,*/.vscode/*
   let g:ctrlp_show_hidden=1
 
   """"""""""""""""""""""""""""""""""
@@ -83,7 +116,10 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""""
   "lucius molokai solarized desert zenburn
   "zenburn的搜索高亮不明显
-  colorscheme solarized
+  "gruvbox onedark hybrid jellybeans flatcolor
+  "白底的: tomorrow
+  "用的比较顺手的:
+  colorscheme gruvbox
   "set background=dark
 
   """"""""""""""""""""""""
@@ -92,16 +128,11 @@ if exists('g:has_vundle')
   set runtimepath^=~/.vim/bundle/ag.vim
   let g:ag_highlight=1
 
-  """""""""""""""""
-  "*****ctags*****"
-  """""""""""""""""
-  set tags=./.tags;,.tags
-
   """""""""""""""""""""""""""""
   "*****bling/vim-airline*****"
   """""""""""""""""""""""""""""
-  let g:airline_theme="molokai"
-  "let g:airline_theme="solarized"
+  "不设置主题的话,则主题跟随colorscheme变化
+  "let g:airline_theme="molokai"
   let g:airline_powerline_fonts                   = 1
   let g:airline#extensions#tabline#enabled        = 1
   let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -164,45 +195,6 @@ if exists('g:has_vundle')
   let g:indent_guides_guide_size            = 1
   let g:indent_guides_start_level           = 2
 
-  """""""""""""""""""""""""""""
-  "*****majutsushi/tagbar*****"
-  """""""""""""""""""""""""""""
-  let tarbar_width=32
-  let g:tagbar_compact=1
-        "\ 'l:local:0:1',
-  let g:tagbar_type_cpp = {
-    \ 'kinds' : [
-        \ 'c:classes:0:1',
-        \ 'd:macros:0:1',
-        \ 'e:enumerators:0:0',
-        \ 'f:functions:0:1',
-        \ 'g:enumeration:0:1',
-        \ 'm:members:0:1',
-        \ 'n:namespaces:0:1',
-        \ 'p:functions_prototypes:0:1',
-        \ 's:structs:0:1',
-        \ 't:typedefs:0:1',
-        \ 'u:unions:0:1',
-        \ 'v:global:0:1',
-        \ 'x:external:0:1'
-    \ ],
-    \ 'sro'        : '::',
-    \ 'kind2scope' : {
-        \ 'g' : 'enum',
-        \ 'n' : 'namespace',
-        \ 'c' : 'class',
-        \ 's' : 'struct',
-        \ 'u' : 'union'
-    \ },
-    \ 'scope2kind' : {
-        \ 'enum'      : 'g',
-        \ 'namespace' : 'n',
-        \ 'class'     : 'c',
-        \ 'struct'    : 's',
-        \ 'union'     : 'u'
-    \ }
-  \ }
-
   """"""""""""""""""""""""""""""""""""
   "*****scrooloose/nerdcommenter*****"
   """"""""""""""""""""""""""""""""""""
@@ -237,7 +229,7 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""""
   "*****nvie/vim-flake8*****"
   """"""""""""""""""""""""""""""""""
-  let python_highlight_all=1
+  "let python_highlight_all=1
 
   """"""""""""""""""""""""
   "*****fatih/vim-go*****"
@@ -282,47 +274,166 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""
   "let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
   "au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
+
+  """""""""""""""""""""""""""""
+  "*****majutsushi/tagbar*****"
+  """""""""""""""""""""""""""""
+  "let tarbar_width=32
+  "let g:tagbar_compact=1
+  "      "\ 'l:local:0:1',
+  "let g:tagbar_type_cpp = {
+  "  \ 'kinds' : [
+  "      \ 'c:classes:0:1',
+  "      \ 'd:macros:0:1',
+  "      \ 'e:enumerators:0:0',
+  "      \ 'f:functions:0:1',
+  "      \ 'g:enumeration:0:1',
+  "      \ 'm:members:0:1',
+  "      \ 'n:namespaces:0:1',
+  "      \ 'p:functions_prototypes:0:1',
+  "      \ 's:structs:0:1',
+  "      \ 't:typedefs:0:1',
+  "      \ 'u:unions:0:1',
+  "      \ 'v:global:0:1',
+  "      \ 'x:external:0:1'
+  "  \ ],
+  "  \ 'sro'        : '::',
+  "  \ 'kind2scope' : {
+  "      \ 'g' : 'enum',
+  "      \ 'n' : 'namespace',
+  "      \ 'c' : 'class',
+  "      \ 's' : 'struct',
+  "      \ 'u' : 'union'
+  "  \ },
+  "  \ 'scope2kind' : {
+  "      \ 'enum'      : 'g',
+  "      \ 'namespace' : 'n',
+  "      \ 'class'     : 'c',
+  "      \ 'struct'    : 's',
+  "      \ 'union'     : 'u'
+  "  \ }
+  "\ }
+
 endif "exists('g:has_vundle')
 
 """""""""""""""""""
 "*****mapping*****"
 """""""""""""""""""
 let mapleader=";"
+" 文件列表
 nnoremap <silent> <F2>    :NERDTreeToggle<CR>
-nnoremap <silent> <F3>    :TagbarToggle<CR>
+" 函数列表
+"nnoremap <silent> <F3>    :TagbarToggle<CR>
+nnoremap <silent> <F3>    :LeaderfFunction!<CR>
+" 源文件/头文件切换
 nnoremap <silent> <F4>    :A<CR>
+" 文件查找
 nnoremap <silent> <F5>    :CtrlP<CR>
+" 快速查找光标所在当前单词
 nnoremap <silent> <F6>    :Ag '<cword>' .<CR>
-nnoremap <silent> <F8>    :!ctags -R .<CR>
+nnoremap <silent> <F7>    :LeaderfMru<CR>
+"nnoremap <silent> <F8>    :!ctags -R .<CR>
+" 上一个buffer
 nnoremap <silent> <leader>h :bp<CR>
+" 下一个buffer
 nnoremap <silent> <leader>l :bn<CR>
+" 跳转到函数定义处
 autocmd FileType python
     \ map <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" 禁用上下左右按键
 map <Left>  <Nop>
 map <Right> <Nop>
 map <Up>    <Nop>
 map <Down>  <Nop>
-"noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-"noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-"noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-"noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 "跳转相关
 "g]
-"ctrl+t
 "ctrl+]
 "ctrl+i
 "ctrl+o
-"za fold open close
+"buffer列表
+":ls
+"查找
+"Ag xxx .
+
+" 设置 Backspace 键模式
+set bs=eol,start,indent
+
+" 自动缩进
+set autoindent
+
+" 打开 c/c++ 语言缩进优化
+set cindent
+
+" 关闭自动换行
+set nowrap
+
+" 搜索忽略大小写
+set ignorecase
+" 智能搜索大小写判断,默认忽略大小写,除非搜索内容包含大写字母
+set smartcase
+" 一边输入一边搜索
+set incsearch
+" 高亮搜索
+set hlsearch
+
+" 内部工作编码
+set encoding=utf-8
+" 文件默认编码
+set fileencoding=utf-8
+" 打开文件时自动尝试下面顺序的编码
+set fileencodings=utf-8,gb18030,gbk,ucs-bom,big5,euc-jp,latin1
+
+" 允许根据文件类型自动设置缩进等
+filetype plugin indent on
+
+" 语法高亮
+syntax enable
+syntax on
+
+" 显示匹配的括号
+set showmatch
+" 显示括号匹配的时间
+set matchtime=2
+
+" 显示最后一行
+set display+=lastline
+
+" 命令补全
+set wildmenu
+
+" 懒重绘
+set lazyredraw
+
+" 错误格式
+set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
+
+" 设置分隔符可见
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.,precedes:<
+
+" 设置.tags文件向上搜索方式
+set tags=./.tags;,.tags
+
+" 如遇Unicode值大于255的文本,不必等到空格再折行
+set formatoptions+=m
+
+" 合并两行中文时,不在中间加空格
+set formatoptions+=B
+
+" 文件换行符,默认使用 unix 换行符
+set fileformat=unix
+set fileformats=unix,dos,mac
+
+" 关闭代码折叠
+set foldmethod=syntax
+set nofoldenable
 
 """"""""""""""""""
 "*****global*****"
 """"""""""""""""""
 set confirm
-set fileformat=unix
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 if has('cmdline_info')
   set ruler
   set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
@@ -383,25 +494,12 @@ set cursorline
 autocmd InsertEnter * :set nocursorline
 autocmd InsertLeave * :set cursorline
 
-""" 搜索忽略大小写
-set ignorecase
-""" 一边输入一边搜索
-set incsearch
-""" 高亮搜索
-set hlsearch
 
-""" 命令补全
-set wildmenu
-""" 高亮
-syntax enable
-syntax on
 """ 行号
 set nu
 """ 显示换行格挡符
 set cc=120
 "set tw=120
-""" 懒重绘
-set lazyredraw
 """ j,k上下移动至顶部、尾部时预留3行
 if !&scrolloff
   set scrolloff=3
@@ -409,12 +507,8 @@ endif
 if !&sidescrolloff
   set sidescrolloff=5
 endif
-set display+=lastline
-set foldmethod=syntax
-set nofoldenable
 
 """ 对齐
-set cindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -433,9 +527,6 @@ set autochdir
 set backspace=2
 """ 鼠标模式，切换到VISUAL MODE时可以用滚轮上下滚动
 set mouse=v
-
-""" 文件编码
-set fileencodings=utf-8,gb18030
 
 """ 自定义一些高亮关键字
 autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|NOTICE\|WARN\)')
@@ -527,4 +618,4 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
