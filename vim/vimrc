@@ -67,10 +67,10 @@ if exists('g:has_vundle')
   "let g:ale_linters_explicit = 1
   let g:ale_completion_delay = 500
   let g:ale_echo_delay = 20
-  let g:ale_lint_delay = 500
+  let g:ale_lint_delay = 1000
   let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-  let g:ale_lint_on_text_changed = 'normal'
-  let g:ale_lint_on_insert_leave = 1
+  let g:ale_lint_on_text_changed = 'never'
+  "let g:ale_lint_on_insert_leave = 1
   let g:airline#extensions#ale#enabled = 1
   let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
   let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
@@ -118,8 +118,8 @@ if exists('g:has_vundle')
   "zenburn的搜索高亮不明显
   "gruvbox onedark hybrid jellybeans flatcolor
   "白底的: tomorrow
-  "用的比较顺手的:
-  colorscheme gruvbox
+  "用的比较顺手的: gruvbox onedark hybrid
+  colorscheme jellybeans
   "set background=dark
 
   """"""""""""""""""""""""
@@ -331,8 +331,8 @@ nnoremap <silent> <F4>    :A<CR>
 nnoremap <silent> <F5>    :CtrlP<CR>
 " 快速查找光标所在当前单词
 nnoremap <silent> <F6>    :Ag '<cword>' .<CR>
+" 最近打开文件列表
 nnoremap <silent> <F7>    :LeaderfMru<CR>
-"nnoremap <silent> <F8>    :!ctags -R .<CR>
 " 上一个buffer
 nnoremap <silent> <leader>h :bp<CR>
 " 下一个buffer
