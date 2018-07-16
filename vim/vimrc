@@ -1,83 +1,85 @@
 " 禁用 vi 兼容模式
 set nocompatible
 
-""""""""""""""""""
-"*****Vundle*****"
-""""""""""""""""""
-if !empty(glob('~/.vim/bundle/Vundle.vim'))
-  let g:has_vundle = 1
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-if exists('g:has_vundle')
+""""""""""""""""""""
+"*****Vim-plug*****"
+""""""""""""""""""""
+"if exists('g:has_vundle')
+  call plug#begin('~/.vim/bundle')
 
-  filetype off
-
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-
-  Plugin 'Vundle.vim'
+  " 插件管理工具
+  Plug 'junegunn/vim-plug'
   " 显示 scons高亮
-  Plugin 'vim-scripts/scons.vim'
+  Plug 'vim-scripts/scons.vim'
   " 显示 nginx配置高亮
-  Plugin 'chr4/nginx.vim'
+  Plug 'chr4/nginx.vim'
   " 显示 json高亮
-  Plugin 'elzr/vim-json'
+  Plug 'elzr/vim-json'
   " 显示 c++语法高亮
-  Plugin 'octol/vim-cpp-enhanced-highlight'
+  Plug 'octol/vim-cpp-enhanced-highlight'
   " 显示 底部状态
-  Plugin 'bling/vim-airline'
+  Plug 'bling/vim-airline'
   " 显示 底部状态
-  Plugin 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline-themes'
   " 显示 主题
-  Plugin 'flazz/vim-colorschemes'
+  Plug 'flazz/vim-colorschemes'
   " 显示 文件中行单位git修改状态
-  Plugin 'mhinz/vim-signify'
+  Plug 'mhinz/vim-signify'
   " 显示 启动vim时显示MRU列表
-  Plugin 'mhinz/vim-startify'
-  " 显示 语法检查
-  "Plugin 'w0rp/ale'
+  Plug 'mhinz/vim-startify'
   " 搜索
-  Plugin 'Yggdroot/LeaderF'
+  Plug 'Yggdroot/LeaderF'
   " 补全 tags生成
-  Plugin 'ludovicchabant/vim-gutentags'
+  Plug 'ludovicchabant/vim-gutentags'
   " 补全
-  Plugin 'valloric/youcompleteme'
+  Plug 'valloric/youcompleteme'
   " 输入 注释相关
-  Plugin 'scrooloose/nerdcommenter'
+  Plug 'scrooloose/nerdcommenter'
   " 文件列表
-  Plugin 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
   " 文件列表 git状态
-  Plugin 'Xuyuanp/nerdtree-git-plugin'
-  " 搜索
-  "Plugin 'kien/ctrlp.vim'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   " 头文件/源文件切换
-  Plugin 'a.vim'
+  Plug 'vim-scripts/a.vim'
   " 搜索
-  Plugin 'rking/ag.vim'
+  Plug 'rking/ag.vim'
   " 缩进对齐相关
-  Plugin 'nathanaelkane/vim-indent-guides'
+  Plug 'nathanaelkane/vim-indent-guides'
   " 高亮 尾部空格
-  Plugin 'ntpeters/vim-better-whitespace'
+  Plug 'ntpeters/vim-better-whitespace'
   " 复制相关
-  Plugin 'ConradIrwin/vim-bracketed-paste'
-  Plugin 'jiangmiao/auto-pairs'
-  "Plugin 'tenfyzhong/CompleteParameter.vim'
-  "Plugin 'rizzatti/dash.vim'
-  "Plugin 'terryma/vim-smooth-scroll'
-  "Plugin 'majutsushi/tagbar'
-  "Plugin 'scrooloose/syntastic'
-  "Plugin 'vim-scripts/indentpython.vim'
-  "Plugin 'nvie/vim-flake8'
-  "Plugin 'myusuf3/numbers.vim'
-  "Plugin 'Cpp11-Syntax-Support'
-  "Plugin 'fatih/vim-go'
-  "Plugin 'mizuchi/stl-syntax'
-  "Plugin 'Shougo/neocomplete'
-  "Plugin 'stanangeloff/php.vim'
-  "Plugin 'shawncplus/phpcomplete.vim'
-  "Plugin 'taglist.vim'
+  Plug 'ConradIrwin/vim-bracketed-paste'
+  " 括号补全
+  Plug 'jiangmiao/auto-pairs'
+  " 搜索
+  "Plug 'kien/ctrlp.vim'
+  " 显示 语法检查
+  "Plug 'w0rp/ale'
+  "Plug 'Vundle.vim'
+  "Plug 'tenfyzhong/CompleteParameter.vim'
+  "Plug 'rizzatti/dash.vim'
+  "Plug 'terryma/vim-smooth-scroll'
+  "Plug 'majutsushi/tagbar'
+  "Plug 'scrooloose/syntastic'
+  "Plug 'vim-scripts/indentpython.vim'
+  "Plug 'nvie/vim-flake8'
+  "Plug 'myusuf3/numbers.vim'
+  "Plug 'Cpp11-Syntax-Support'
+  "Plug 'fatih/vim-go'
+  "Plug 'mizuchi/stl-syntax'
+  "Plug 'Shougo/neocomplete'
+  "Plug 'stanangeloff/php.vim'
+  "Plug 'shawncplus/phpcomplete.vim'
+  "Plug 'taglist.vim'
 
-  call vundle#end()
+  "call vundle#end()
+  call plug#end()
 
   """""""""""""""""""""
   "*****LeaderF*****"
@@ -345,7 +347,7 @@ if exists('g:has_vundle')
   "let g:syntastic_always_populate_loc_list = 1
   "let g:syntastic_auto_loc_list            = 1
 
-endif "exists('g:has_vundle')
+"endif "exists('g:has_vundle')
 
 """""""""""""""""""
 "*****mapping*****"
