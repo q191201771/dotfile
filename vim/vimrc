@@ -16,13 +16,27 @@ endif
   " 插件管理工具
   Plug 'junegunn/vim-plug'
   " 显示 scons高亮
-  Plug 'vim-scripts/scons.vim'
+  Plug 'vim-scripts/scons.vim', { 'for': 'scons' }
   " 显示 nginx配置高亮
-  Plug 'chr4/nginx.vim'
+  Plug 'chr4/nginx.vim', { 'for': 'nginx' }
   " 显示 json高亮
-  Plug 'elzr/vim-json'
+  Plug 'elzr/vim-json', { 'for': 'json' }
   " 显示 c++语法高亮
-  Plug 'octol/vim-cpp-enhanced-highlight'
+  Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+  " 补全 tags生成
+  Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'] }
+  " 补全
+  Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp'] }
+  " 头文件/源文件切换
+  Plug 'vim-scripts/a.vim', { 'on': 'A', 'for': ['c', 'cpp'] }
+  " 搜索
+  Plug 'Yggdroot/LeaderF', { 'on': ['LeaderfFunction', 'LeaderfFile', 'LeaderfMru'] }
+  " 文件列表
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  " 文件列表 git状态
+  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+  " 搜索
+  Plug 'rking/ag.vim', { 'on': 'Ag' }
   " 显示 底部状态
   Plug 'bling/vim-airline'
   " 显示 底部状态
@@ -33,22 +47,8 @@ endif
   Plug 'mhinz/vim-signify'
   " 显示 启动vim时显示MRU列表
   Plug 'mhinz/vim-startify'
-  " 搜索
-  Plug 'Yggdroot/LeaderF'
-  " 补全 tags生成
-  Plug 'ludovicchabant/vim-gutentags'
-  " 补全
-  Plug 'valloric/youcompleteme'
   " 输入 注释相关
   Plug 'scrooloose/nerdcommenter'
-  " 文件列表
-  Plug 'scrooloose/nerdtree'
-  " 文件列表 git状态
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  " 头文件/源文件切换
-  Plug 'vim-scripts/a.vim'
-  " 搜索
-  Plug 'rking/ag.vim'
   " 缩进对齐相关
   Plug 'nathanaelkane/vim-indent-guides'
   " 高亮 尾部空格
