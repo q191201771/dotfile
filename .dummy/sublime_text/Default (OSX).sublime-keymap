@@ -1,4 +1,0 @@
-[
-    {"keys": ["ctrl+o"], "command": "jump_back"},
-    {"keys": ["ctrl+i"], "command": "jump_forward"},
-]
