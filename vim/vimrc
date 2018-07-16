@@ -61,6 +61,7 @@ if exists('g:has_vundle')
   " 复制相关
   Plugin 'ConradIrwin/vim-bracketed-paste'
   Plugin 'jiangmiao/auto-pairs'
+  "Plugin 'tenfyzhong/CompleteParameter.vim'
   "Plugin 'rizzatti/dash.vim'
   "Plugin 'terryma/vim-smooth-scroll'
   "Plugin 'majutsushi/tagbar'
@@ -136,11 +137,12 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""""
   "*****flazz/vim-colorschemes*****"
   """"""""""""""""""""""""""""""""""
-  "用的比较顺手的: gruvbox onedark hybrid jellybeans lucius
+  "T0: gruvbox
+  "T1: onedark hybrid jellybeans lucius
   "白底的: tomorrow
   "搜索高亮不明显: flatcolor zeburn
   "不常用的: molokai solarized desert
-  colorscheme onedark
+  colorscheme lucius
   "set background=dark
 
   """"""""""""""""""""""""
@@ -275,6 +277,8 @@ if exists('g:has_vundle')
   """"""""""""""""""""""""""""""""
   "let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
   "au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
+  "let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+  "inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
 
   """""""""""""""""""""""""""""
   "*****majutsushi/tagbar*****"
@@ -372,6 +376,14 @@ map <Left>  <Nop>
 map <Right> <Nop>
 map <Up>    <Nop>
 map <Down>  <Nop>
+
+" tenfyzhong/CompleteParameter.vim
+"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+
 "跳转相关
 "g]
 "ctrl+]
@@ -592,48 +604,36 @@ autocmd bufnewfile *.sh call HeaderBash()
 
 function HeaderCpp()
     call setline(1,  "/**")
-    call  append(1,  " * @file   ".expand("%")."/xxx")
-    call  append(2,  " * @deps   xxx")
-    call  append(3,  " *")
-    call  append(4,  " * @author")
-    call  append(5,  " *   chef <191201771@qq.com>")
-    call  append(6,  " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
-    call  append(7,  " *     -initial release xxxx-xx-xx")
-    call  append(8,  " *")
-    call  append(9,  " * @brief")
-    call  append(10, " *   xxx")
-    call  append(11, " *")
-    call  append(12, " */")
-    call  append(13, "")
-    call  append(14, "#pragma once")
-    call  append(15, "")
-    call  append(16, "namespace xxx {")
-    call  append(17, "")
-    call  append(18, "class xxx {")
-    call  append(19, "  public:")
-    call  append(20, "}; /// class xxx")
-    call  append(21, "")
-    call  append(22, "} /// namespace xxx")
+    call  append(1,  " * @file     ".expand("%")."/xxx")
+    call  append(2,  " * @deps     xxx")
+    call  append(3,  " * @platform xxx/xxx/xxx")
+    call  append(4,  " *")
+    call  append(5,  " * @author")
+    call  append(6,  " *   chef <191201771@qq.com>")
+    call  append(7,  " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+    call  append(8,  " *     -initial release xxxx-xx-xx")
+    call  append(9,  " *")
+    call  append(10, " * @brief    xxx")
 
     normal G
     normal o
 endf
 autocmd bufnewfile *.h,*.hpp call HeaderCpp()
 
-function Cpp()
-    call setline(1, "/**")
-    call  append(1, " * @file   ".expand("%"))
-    call  append(2, " * @author")
-    call  append(3, " *   chef <191201771@qq.com>")
-    call  append(4, " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
-    call  append(5, " *     -initial release xxxx-xx-xx")
-    call  append(6, " *")
-    call  append(7, " */")
-
-    normal G
-    normal o
-endf
-autocmd bufnewfile *.c,*.cc,*.cpp,*.go call Cpp()
+"function Cpp()
+"    call setline(1, "/**")
+"    call  append(1, " * @file   ".expand("%"))
+"    call  append(2, " * @author")
+"    call  append(3, " *   chef <191201771@qq.com>")
+"    call  append(4, " *     -created ".strftime("%Y-%m-%d %H:%M:%S"))
+"    call  append(5, " *     -initial release xxxx-xx-xx")
+"    call  append(6, " *")
+"    call  append(7, " */")
+"
+"    normal G
+"    normal o
+"endf
+"autocmd bufnewfile *.c,*.cc,*.cpp,*.go call Cpp()
 
 "python with virtualenv support
 py << EOF
