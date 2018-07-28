@@ -22,9 +22,9 @@ endif
   " 显示 json高亮
   Plug 'elzr/vim-json', { 'for': 'json' }
   " 显示 c++语法高亮
-  Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+  Plug 'octol/vim-cpp-enhanced-highlight' ", { 'for': ['c', 'cpp'] }
   " 补全 tags生成
-  Plug 'ludovicchabant/vim-gutentags', { 'for': ['c', 'cpp'] }
+  Plug 'ludovicchabant/vim-gutentags' ", { 'for': ['c', 'cpp'] }
   " 补全
   Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp'] }
   " 头文件/源文件切换
@@ -32,9 +32,9 @@ endif
   " 搜索
   Plug 'Yggdroot/LeaderF', { 'on': ['LeaderfFunction', 'LeaderfFile', 'LeaderfMru'] }
   " 文件列表
-  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
   " 文件列表 git状态
-  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+  Plug 'Xuyuanp/nerdtree-git-plugin' ", { 'on': 'NERDTreeToggle' }
   " 搜索
   Plug 'rking/ag.vim', { 'on': 'Ag' }
   " 显示 底部状态
@@ -139,12 +139,12 @@ endif
   """"""""""""""""""""""""""""""""""
   "*****flazz/vim-colorschemes*****"
   """"""""""""""""""""""""""""""""""
-  "T0: gruvbox
-  "T1: onedark hybrid jellybeans lucius
-  "白底的: tomorrow
+  "T0: gruvbox onedark
+  "T1: hybrid jellybeans lucius seoul256
+  "T2: molokai solarized desert peaksea pyte
+  "白色背景: tomorrow mayansmoke
   "搜索高亮不明显: flatcolor zeburn
-  "不常用的: molokai solarized desert
-  colorscheme lucius
+  colorscheme onedark
   "set background=dark
 
   """"""""""""""""""""""""
@@ -575,7 +575,7 @@ autocmd Syntax * call matchadd('Todo', '\W\zs\(CHEFTODO\|CHEFFIXME\|CHEFERASEME\
 autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@platform\|@author\|@desc\|@brief\|@function\|@param\|@return\|@notice\)')
 
 """ 根据文件类型自动插入文件头部
-function HeaderPython()
+function! HeaderPython()
     call setline(1, "#!/usr/bin/env python")
     call  append(1, "# -*- coding: utf-8 -*-")
     call  append(2, "# @file   ".expand("%"))
@@ -590,7 +590,7 @@ function HeaderPython()
 endf
 autocmd bufnewfile *.py call HeaderPython()
 
-function HeaderBash()
+function! HeaderBash()
     call setline(1, "#!/usr/bin/env bash")
     call  append(1, "# @file   ".expand("%"))
     call  append(2, "# @author")
@@ -604,7 +604,7 @@ function HeaderBash()
 endf
 autocmd bufnewfile *.sh call HeaderBash()
 
-function HeaderCpp()
+function! HeaderCpp()
     call setline(1,  "/**")
     call  append(1,  " * @file     ".expand("%")."/xxx")
     call  append(2,  " * @deps     xxx")
@@ -622,7 +622,7 @@ function HeaderCpp()
 endf
 autocmd bufnewfile *.h,*.hpp call HeaderCpp()
 
-"function Cpp()
+"function! Cpp()
 "    call setline(1, "/**")
 "    call  append(1, " * @file   ".expand("%"))
 "    call  append(2, " * @author")
