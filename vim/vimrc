@@ -22,19 +22,21 @@ endif
   " 显示 json高亮
   Plug 'elzr/vim-json', { 'for': 'json' }
   " 显示 c++语法高亮
-  Plug 'octol/vim-cpp-enhanced-highlight' ", { 'for': ['c', 'cpp'] }
+  Plug 'octol/vim-cpp-enhanced-highlight'
   " 补全 tags生成
-  Plug 'ludovicchabant/vim-gutentags' ", { 'for': ['c', 'cpp'] }
+  Plug 'ludovicchabant/vim-gutentags'
   " 补全
-  Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp'] }
+  Plug 'valloric/youcompleteme'
+  " 补全参数
+  Plug 'tenfyzhong/CompleteParameter.vim'
   " 头文件/源文件切换
   Plug 'vim-scripts/a.vim', { 'on': 'A', 'for': ['c', 'cpp'] }
   " 搜索
   Plug 'Yggdroot/LeaderF', { 'on': ['LeaderfFunction', 'LeaderfFile', 'LeaderfMru'] }
   " 文件列表
-  Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
+  Plug 'scrooloose/nerdtree'
   " 文件列表 git状态
-  Plug 'Xuyuanp/nerdtree-git-plugin' ", { 'on': 'NERDTreeToggle' }
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   " 搜索
   Plug 'rking/ag.vim', { 'on': 'Ag' }
   " 显示 底部状态
@@ -57,21 +59,25 @@ endif
   Plug 'ConradIrwin/vim-bracketed-paste'
   " 括号补全
   Plug 'jiangmiao/auto-pairs'
+  " golang
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'nsf/gocode'
+  Plug 'majutsushi/tagbar'
+  " Plug 'Blackrush/vim-gocode'
+  " Plug 'dgryski/vim-godef'
+  " Plug 'scrooloose/syntastic'
   " 搜索
   "Plug 'kien/ctrlp.vim'
   " 显示 语法检查
   "Plug 'w0rp/ale'
   "Plug 'Vundle.vim'
-  "Plug 'tenfyzhong/CompleteParameter.vim'
   "Plug 'rizzatti/dash.vim'
   "Plug 'terryma/vim-smooth-scroll'
   "Plug 'majutsushi/tagbar'
-  "Plug 'scrooloose/syntastic'
   "Plug 'vim-scripts/indentpython.vim'
   "Plug 'nvie/vim-flake8'
   "Plug 'myusuf3/numbers.vim'
   "Plug 'Cpp11-Syntax-Support'
-  "Plug 'fatih/vim-go'
   "Plug 'mizuchi/stl-syntax'
   "Plug 'Shougo/neocomplete'
   "Plug 'stanangeloff/php.vim'
@@ -139,12 +145,12 @@ endif
   """"""""""""""""""""""""""""""""""
   "*****flazz/vim-colorschemes*****"
   """"""""""""""""""""""""""""""""""
-  "T0: gruvbox onedark
-  "T1: hybrid jellybeans lucius seoul256
+  "T0: gruvbox onedark hybrid jellybeans lucius
+  "T1: seoul256
   "T2: molokai solarized desert peaksea pyte
   "白色背景: tomorrow mayansmoke
   "搜索高亮不明显: flatcolor zeburn
-  colorscheme onedark
+  colorscheme seoul256
   "set background=dark
 
   """"""""""""""""""""""""
@@ -213,6 +219,13 @@ endif
   """"""""""""""""""""""""""""""""""
   "*****valloric/youcompleteme*****"
   """"""""""""""""""""""""""""""""""
+  let g:ycm_server_log_level = 'warning'
+  let g:ycm_confirm_extra_conf = 1
+  let g:ycm_show_diagnostics_ui = 0
+  let g:ycm_add_preview_to_completeopt = 0
+  let g:ycm_autoclose_preview_window_after_completion = 1
+  set completeopt=menu,menuone
+
   "let g:ycm_min_num_of_chars_for_completion = 1
   "let g:ycm_min_num_identifier_candidate_chars = 2
   "let g:ycm_complete_in_comments = 1
@@ -220,16 +233,10 @@ endif
   "let g:ycm_cache_omnifunc = 0
   "let g:ycm_collect_identifiers_from_comments_and_strings = 1
   "let g:ycm_complete_in_strings = 1
-  let g:ycm_server_log_level = 'warning'
-  let g:ycm_confirm_extra_conf = 1
-  let g:ycm_show_diagnostics_ui = 0
-  let g:ycm_add_preview_to_completeopt = 0
-  let g:ycm_autoclose_preview_window_after_completion = 1
   "let g:ycm_semantic_triggers =  {
   "         \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
   "         \ 'cs,lua,javascript': ['re!\w{2}'],
   "         \ }
-  set completeopt=menu,menuone
 
   """"""""""""""""""""""""""""""""""
   "*****nvie/vim-flake8*****"
@@ -239,13 +246,17 @@ endif
   """"""""""""""""""""""""
   "*****fatih/vim-go*****"
   """"""""""""""""""""""""
-  "let g:go_highlight_functions         = 1
-  "let g:go_highlight_methods           = 1
-  "let g:go_highlight_structs           = 1
-  "let g:go_highlight_interfaces        = 1
-  "let g:go_highlight_operators         = 1
-  "let g:go_highlight_build_constraints = 1
-  "let g:go_fmt_command                 = "goimports"
+  let g:go_highlight_types             = 1
+  let g:go_highlight_fields            = 1
+  let g:go_highlight_functions         = 1
+  let g:go_highlight_function_calls    = 1
+  let g:go_highlight_operators         = 1
+  let g:go_highlight_extra_types       = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_methods           = 1
+  let g:go_highlight_structs           = 1
+  let g:go_highlight_interfaces        = 1
+  let g:go_fmt_command                 = "goimports"
 
   """"""""""""""""""""""""""""""
   "*****Shougo/neocomplete*****"
@@ -356,8 +367,9 @@ let mapleader=";"
 " 文件列表
 nnoremap <silent> <F2>    :NERDTreeToggle<CR>
 " 函数列表
-"nnoremap <silent> <F3>    :TagbarToggle<CR>
 nnoremap <silent> <F3>    :LeaderfFunction!<CR>
+autocmd FileType go
+    \ nnoremap <silent> <F3> :TagbarToggle<CR>
 " 源文件/头文件切换
 nnoremap <silent> <F4>    :A<CR>
 " 文件查找
@@ -379,7 +391,7 @@ map <Right> <Nop>
 map <Up>    <Nop>
 map <Down>  <Nop>
 
-" tenfyzhong/CompleteParameter.vim
+"tenfyzhong/CompleteParameter.vim
 "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 "smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 "imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
