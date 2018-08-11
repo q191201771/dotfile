@@ -63,9 +63,9 @@ endif
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'nsf/gocode'
   Plug 'majutsushi/tagbar'
+  Plug 'scrooloose/syntastic'
   " Plug 'Blackrush/vim-gocode'
   " Plug 'dgryski/vim-godef'
-  " Plug 'scrooloose/syntastic'
   " 搜索
   "Plug 'kien/ctrlp.vim'
   " 显示 语法检查
@@ -73,7 +73,6 @@ endif
   "Plug 'Vundle.vim'
   "Plug 'rizzatti/dash.vim'
   "Plug 'terryma/vim-smooth-scroll'
-  "Plug 'majutsushi/tagbar'
   "Plug 'vim-scripts/indentpython.vim'
   "Plug 'nvie/vim-flake8'
   "Plug 'myusuf3/numbers.vim'
@@ -150,7 +149,7 @@ endif
   "T2: molokai solarized desert peaksea pyte
   "白色背景: tomorrow mayansmoke
   "搜索高亮不明显: flatcolor zeburn
-  colorscheme seoul256
+  colorscheme gruvbox
   "set background=dark
 
   """"""""""""""""""""""""
@@ -196,6 +195,7 @@ endif
   let NERDTreeWinSize          = 32
   "let NERDTreeMinimalUI        = 1
   let NERDTreeAutoDeleteBuffer = 1
+  let NERDTreeSortOrder = ['\/$', '*', '\.go$', '\.md$']
   "autocmd vimenter * NERDTree
 
 
@@ -256,7 +256,8 @@ endif
   let g:go_highlight_methods           = 1
   let g:go_highlight_structs           = 1
   let g:go_highlight_interfaces        = 1
-  let g:go_fmt_command                 = "goimports"
+  let g:go_fmt_command = "goimports"
+  let g:go_fmt_autosave = 1
 
   """"""""""""""""""""""""""""""
   "*****Shougo/neocomplete*****"
@@ -660,3 +661,5 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 "autocmd BufWritePost *.py call Flake8()
+
+"autocmd BufWritePost *.go %! goimports
