@@ -10,7 +10,9 @@ endif
 """"""""""""""""""""
 "*****Vim-plug*****"
 """"""""""""""""""""
-"if exists('g:has_vundle')
+"注释掉chef_has_plugin则不使用其他插件
+let g:chef_has_plugin=1
+if exists('g:chef_has_plugin')
   call plug#begin('~/.vim/bundle')
 
   " 插件管理工具
@@ -359,7 +361,7 @@ endif
   "let g:syntastic_always_populate_loc_list = 1
   "let g:syntastic_auto_loc_list            = 1
 
-"endif "exists('g:has_vundle')
+endif "exists('chef_has_plugin')
 
 """""""""""""""""""
 "*****mapping*****"
@@ -409,7 +411,66 @@ map <Down>  <Nop>
 "查找
 "Ag xxx .
 
-" CHEFCONFIGME
+" 允许根据文件类型自动设置缩进等
+filetype plugin indent on
+" 语法高亮
+syntax on
+" 自动缩进
+set autoindent
+" tab转换为空格
+set expandtab
+""" 对齐
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set shiftround
+autocmd FileType python set tabstop=4
+autocmd FileType python set softtabstop=4
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set cc=80
+autocmd FileType python set fileformat=unix
+" 设置 Backspace 键模式
+set backspace=eol,start,indent
+" 在buf间跳转不需要保持
+set hidden
+" 显示最后一行
+set display+=lastline
+" 显示命令
+if has('cmdline_info')
+  set ruler
+  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+  set showmode
+  set showcmd
+endif
+" 搜索忽略大小写
+set ignorecase
+" 智能搜索大小写判断,默认忽略大小写,除非搜索内容包含大写字母
+set smartcase
+" 一边输入一边搜索
+set incsearch
+" 高亮搜索
+set hlsearch
+" 快速重绘
+set ttyfast
+" 懒重绘
+set lazyredraw
+" 切分窗口在下面
+set splitbelow
+" 切分窗口在右边
+set splitright
+""" 非INSERT模式时高亮显示光标所在行
+set cursorline
+autocmd InsertEnter * :set nocursorline
+autocmd InsertLeave * :set cursorline
+" 汇报行数变化
+set report=0
+" 设置最大高亮列
+set synmaxcol=200
+" 设置分隔符可见
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.,precedes:<
+""""""" CHEFCONFIGME """"""
+
+
 
 " 命令补全
 set wildmenu
@@ -421,26 +482,11 @@ set sidescrolloff=5
 
 set wildignore=*/.git/*,*/.svn/*,*/.tags,*/*.o,*/.vscode/*
 
-" 设置 Backspace 键模式
-set bs=eol,start,indent
-
-" 自动缩进
-set autoindent
-
 " 打开 c/c++ 语言缩进优化
 set cindent
 
 " 关闭自动换行
 set nowrap
-
-" 搜索忽略大小写
-set ignorecase
-" 智能搜索大小写判断,默认忽略大小写,除非搜索内容包含大写字母
-set smartcase
-" 一边输入一边搜索
-set incsearch
-" 高亮搜索
-set hlsearch
 
 " 内部工作编码
 set encoding=utf-8
@@ -449,29 +495,17 @@ set fileencoding=utf-8
 " 打开文件时自动尝试下面顺序的编码
 set fileencodings=utf-8,gb18030,gbk,ucs-bom,big5,euc-jp,latin1
 
-" 允许根据文件类型自动设置缩进等
-filetype plugin indent on
-
-" 语法高亮
-syntax enable
-syntax on
 
 " 显示匹配的括号
 set showmatch
 " 显示括号匹配的时间
 set matchtime=2
 
-" 显示最后一行
-set display+=lastline
 
-" 懒重绘
-set lazyredraw
 
 " 错误格式
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 
-" 设置分隔符可见
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.,precedes:<
 
 " 设置.tags文件向上搜索方式
 set tags=./.tags;,.tags
@@ -497,12 +531,8 @@ set confirm
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 set list
-if has('cmdline_info')
-  set ruler
-  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-  set showcmd
-endif
-if has('statusline')
+if !exists('chef_has_plugin')
+    " 始终显示状态栏
     set laststatus=2
 
     " Broken down into easily includeable segments
@@ -514,11 +544,6 @@ if has('statusline')
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
-set hidden    " Allow buffer switching without saving
-set ttyfast
-set wrapscan
-set report=0
-set synmaxcol=200
 
 """ 打开文件跳转到最后修改处
 if has("autocmd")
@@ -551,10 +576,6 @@ set undofile
 set undodir=~/.vim/undo//
 set viminfo='100,n$HOME/.vim/viminfo'
 
-""" 非INSERT模式时高亮显示光标所在行
-set cursorline
-autocmd InsertEnter * :set nocursorline
-autocmd InsertLeave * :set cursorline
 
 """ 行号
 set nu
@@ -562,18 +583,6 @@ set nu
 set cc=120
 "set tw=120
 
-""" 对齐
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-
-autocmd FileType python set tabstop=4
-autocmd FileType python set softtabstop=4
-autocmd FileType python set shiftwidth=4
-autocmd FileType python set cc=80
-autocmd FileType python set expandtab
-autocmd FileType python set fileformat=unix
 
 """ 切换当前目录
 set autochdir
