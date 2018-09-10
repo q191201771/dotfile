@@ -28,7 +28,7 @@ if exists('g:chef_has_plugin')
   " 补全 tags生成
   Plug 'ludovicchabant/vim-gutentags'
   " 补全
-  Plug 'valloric/youcompleteme'
+  Plug 'valloric/youcompleteme', { 'for': ['go'] }
   " 补全参数
   Plug 'tenfyzhong/CompleteParameter.vim'
   " 头文件/源文件切换
@@ -65,7 +65,8 @@ if exists('g:chef_has_plugin')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'nsf/gocode'
   Plug 'majutsushi/tagbar'
-  Plug 'scrooloose/syntastic'
+  Plug 'osyo-manga/vim-over'
+  "Plug 'scrooloose/syntastic'
   " Plug 'Blackrush/vim-gocode'
   " Plug 'dgryski/vim-godef'
   " 搜索
@@ -146,12 +147,49 @@ if exists('g:chef_has_plugin')
   """"""""""""""""""""""""""""""""""
   "*****flazz/vim-colorschemes*****"
   """"""""""""""""""""""""""""""""""
-  "T0: gruvbox onedark hybrid jellybeans lucius
-  "T1: seoul256
-  "T2: molokai solarized desert peaksea pyte
-  "白色背景: tomorrow mayansmoke
-  "搜索高亮不明显: flatcolor zeburn
-  colorscheme gruvbox
+  "colorscheme gruvbox
+  "每次vim启动时随机选择一个我喜欢的颜色主题
+  "将主题分为多组，每组可设置权重，权重越大，该组被选中的概率越大，组内具体主题选择策略为随机选取
+  function! ChefRandomColor()
+    " 配置组对应的权重
+    let l:chef_colors_ws = {
+        \ "T0": 80,
+        \ "T1": 10,
+        \ "T2": 10
+        \ }
+    " 配置组对应的主题列表
+    let l:chef_colors_ts = {
+        \ "T0": ['gruvbox', 'onedark', 'hybrid', 'jellybeans', 'lucius'],
+        \ "T1": ['seoul256'],
+        \ "T2": ['molokai', 'solarized', 'desert', 'peaksea', 'pyte', 'flatcolor', 'zenburn', 'tomorrow', 'mayansmoke']
+        \ }
+
+    " 计算weight总和
+    let l:chef_colors_w_sum=1
+    for w in values(l:chef_colors_ws)
+      let l:chef_colors_w_sum = l:chef_colors_w_sum + w
+    endfor
+
+    " 魔数落在weight总和之中
+    let l:chef_colors_magic_num = (getpid()+localtime()) % l:chef_colors_w_sum
+
+    " 选取组
+    let l:chef_colors_w_count = 0
+    let l:chef_colors_t = "T0"
+    for item in items(l:chef_colors_ws)
+      let l:chef_colors_w_count = l:chef_colors_w_count + item[1]
+      if l:chef_colors_magic_num < l:chef_colors_w_count
+        let l:chef_colors_t = item[0]
+        break
+      endif
+    endfor
+
+    " 选取组内的具体主题
+    let l:chef_colors_color = l:chef_colors_ts[l:chef_colors_t][l:chef_colors_magic_num % len(l:chef_colors_ts[l:chef_colors_t])]
+
+    execute "colorscheme " . l:chef_colors_color
+  endf
+  autocmd VimEnter * call ChefRandomColor()
   "set background=dark
 
   """"""""""""""""""""""""
@@ -371,10 +409,10 @@ let mapleader=";"
 nnoremap <silent> <F2>    :NERDTreeToggle<CR>
 " 函数列表
 nnoremap <silent> <F3>    :LeaderfFunction!<CR>
-autocmd FileType go
-    \ nnoremap <silent> <F3> :TagbarToggle<CR>
+autocmd FileType go nnoremap <silent> <F3> :TagbarToggle<CR>
 " 源文件/头文件切换
 nnoremap <silent> <F4>    :A<CR>
+autocmd FileType go nnoremap <silent> <F4> :%! goimports<CR>
 " 文件查找
 nnoremap <silent> <F5>    :LeaderfFile<CR>
 " 快速查找光标所在当前单词
@@ -386,8 +424,7 @@ nnoremap <silent> <leader>h :bp<CR>
 " 下一个buffer
 nnoremap <silent> <leader>l :bn<CR>
 " 跳转到函数定义处
-autocmd FileType python
-    \ map <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"autocmd FileType python map <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " 禁用上下左右按键
 map <Left>  <Nop>
 map <Right> <Nop>
@@ -429,6 +466,10 @@ autocmd FileType python set softtabstop=4
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set cc=80
 autocmd FileType python set fileformat=unix
+" 设置分隔符可见
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.,precedes:<
+" golang用tab缩进，不显示tab免得太乱
+autocmd FileType go set listchars=tab:\ \ ,trail:•,extends:#,nbsp:.,precedes:<
 " 设置 Backspace 键模式
 set backspace=eol,start,indent
 " 在buf间跳转不需要保持
@@ -466,8 +507,6 @@ autocmd InsertLeave * :set cursorline
 set report=0
 " 设置最大高亮列
 set synmaxcol=200
-" 设置分隔符可见
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.,precedes:<
 """"""" CHEFCONFIGME """"""
 
 
@@ -594,7 +633,7 @@ set mouse=v
 """ 自定义一些高亮关键字
 autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\|FIXME\|NOTICE\|WARN\)')
 autocmd Syntax * call matchadd('Todo', '\W\zs\(CHEFTODO\|CHEFFIXME\|CHEFERASEME\|CHEFTMP\)')
-autocmd Syntax * call matchadd('Todo', '\W\zs\(@file\|@deps\|@platform\|@author\|@desc\|@brief\|@function\|@param\|@return\|@notice\)')
+autocmd Syntax * call matchadd('Todo', '\W\zs\(@tag\|@file\|@deps\|@platform\|@author\|@desc\|@brief\|@function\|@param\|@return\|@notice\)')
 
 """ 根据文件类型自动插入文件头部
 function! HeaderPython()
